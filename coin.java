@@ -21,6 +21,7 @@ public class Coin {
 
     public Coin(){
         //Should initialize a new coin(penny) with the current year.
+        Coin newCoin = new Coin(.50, 2025);
     }
 
     public Coin(double value, int year){
@@ -40,8 +41,41 @@ public class Coin {
                 this.valueDescription = "ONE CENT";
                 this.ridgedEdge = false;
                 this.metallurgy = "Copper";
-        }else if(value == 0.05){
-            //continue pattern.
+        } else if(value == 0.05){
+            this.familiarName = "Nickel";
+                this.frontImage = "T_Jefferson";
+                this.backImage = "Jefferson_Memorial";
+                this.valueDescription = "FIVE CENT";
+                this.ridgedEdge = false;
+                this.metallurgy = "Cupro-Nickel";
+        } else if(value == 0.10){
+                this.familiarName = "Dime";
+                this.frontImage = "F_Roosevelt";
+                this.backImage = "Torch_Branches";
+                this.valueDescription = "ONE DIME";
+                this.ridgedEdge = true;
+                this.metallurgy = "Cupro-Nickel";
+        } else if(value == 0.25){
+            this.familiarName = "Quarter";
+            this.frontImage = "G_Washington";
+            this.backImage = "Eagle";
+            this.valueDescription = "QUARTER DOLLAR";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
+        } else if(value == 0.50){
+        this.familiarName = "HalfDollar";
+        this.frontImage = "J_Kennedy";
+        this.backImage = "Presidential_Seal";
+        this.valueDescription = "HALF DOLLAR";
+        this.ridgedEdge = true;
+        this.metallurgy = "Cupro-Nickel";
+        } else if(value == 1.00){
+        this.familiarName = "Dollar";
+        this.frontImage = "S_Anthony";
+        this.backImage = "Moon_Ealge";
+        this.valueDescription = "ONE DOLLAR";
+        this.ridgedEdge = true;
+        this.metallurgy = "Cupro-Nickel";
         }
     }
         public String toString() {
@@ -50,5 +84,51 @@ public class Coin {
                     + (ridgedEdge ? "ridges" : "no-ridges") + ",'" + metallurgy + "']"; 
         
         }
+
+        public String getFamiliarName(){
+            return this.familiarName;
+        }
+
+        public Double getValue() {
+            return this.value;
+        }
+
+        public String getFrontMotto(){
+            return this.frontMotto;
+        }
+
+        public String getBackMotto(){
+            return this.backMotto;
+        }
+
+        public String getFrontLabel() {
+            return this.frontLabel;
+        }
+
+        public String getBackLabel() {
+            return this.backLabel;
+        }
+
+        public String getFrontImage() {
+            return this.frontImage;
+        }
+
+        public String getBackImage() {
+            return this.backImage;
+        }
+
+        public String getValueDescription() {
+            return this.valueDescription;
+        }
+
+        public Boolean getRiggedEdge(){
+            return this.ridgedEdge;
+        }
+
+        public String getMetallurgy() {
+            return this.metallurgy;
+        }
+
+        
+
     }
-}
