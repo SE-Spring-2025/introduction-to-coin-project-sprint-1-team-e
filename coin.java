@@ -19,116 +19,174 @@ public class Coin {
     private boolean ridgedEdge;
     private String metallurgy;
 
-    public Coin(){
-        //Should initialize a new coin(penny) with the current year.
+    public Coin() {
+        // Should initialize a new coin(penny) with the current year.
         Coin newCoin = new Coin(.50, 2025);
     }
 
-    public Coin(double value, int year){
+    public Coin(double value) {
         this.value = value;
-        this.year = year;
-        
+
         // Set properties common to all Coins according to the test file
         this.frontMotto = "IN GOD WE TRUST";
         this.backMotto = "E PLURIBUS UNUM";
         this.frontLabel = "LIBERTY";
         this.backLabel = "UNITED STATES OF AMERICA";
 
-        if(value == 0.01){
-                this.familiarName = "Penny";
-                this.frontImage = "A_Lincoln";
-                this.backImage = "Lincoln_Memorial";
-                this.valueDescription = "ONE CENT";
-                this.ridgedEdge = false;
-                this.metallurgy = "Copper";
-        } else if(value == 0.05){
+        if (value == 0.01) {
+            this.familiarName = "Penny";
+            this.frontImage = "A_Lincoln";
+            this.backImage = "Lincoln_Memorial";
+            this.valueDescription = "ONE CENT";
+            this.ridgedEdge = false;
+            this.metallurgy = "Copper";
+        } else if (value == 0.05) {
             this.familiarName = "Nickel";
-                this.frontImage = "T_Jefferson";
-                this.backImage = "Jefferson_Memorial";
-                this.valueDescription = "FIVE CENT";
-                this.ridgedEdge = false;
-                this.metallurgy = "Cupro-Nickel";
-        } else if(value == 0.10){
-                this.familiarName = "Dime";
-                this.frontImage = "F_Roosevelt";
-                this.backImage = "Torch_Branches";
-                this.valueDescription = "ONE DIME";
-                this.ridgedEdge = true;
-                this.metallurgy = "Cupro-Nickel";
-        } else if(value == 0.25){
+            this.frontImage = "T_Jefferson";
+            this.backImage = "Jefferson_Memorial";
+            this.valueDescription = "FIVE CENT";
+            this.ridgedEdge = false;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 0.10) {
+            this.familiarName = "Dime";
+            this.frontImage = "F_Roosevelt";
+            this.backImage = "Torch_Branches";
+            this.valueDescription = "ONE DIME";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 0.25) {
             this.familiarName = "Quarter";
             this.frontImage = "G_Washington";
             this.backImage = "Eagle";
             this.valueDescription = "QUARTER DOLLAR";
             this.ridgedEdge = true;
             this.metallurgy = "Cupro-Nickel";
-        } else if(value == 0.50){
-        this.familiarName = "HalfDollar";
-        this.frontImage = "J_Kennedy";
-        this.backImage = "Presidential_Seal";
-        this.valueDescription = "HALF DOLLAR";
-        this.ridgedEdge = true;
-        this.metallurgy = "Cupro-Nickel";
-        } else if(value == 1.00){
-        this.familiarName = "Dollar";
-        this.frontImage = "S_Anthony";
-        this.backImage = "Moon_Ealge";
-        this.valueDescription = "ONE DOLLAR";
-        this.ridgedEdge = true;
-        this.metallurgy = "Cupro-Nickel";
+        } else if (value == 0.50) {
+            this.familiarName = "HalfDollar";
+            this.frontImage = "J_Kennedy";
+            this.backImage = "Presidential_Seal";
+            this.valueDescription = "HALF DOLLAR";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 1.00) {
+            this.familiarName = "Dollar";
+            this.frontImage = "S_Anthony";
+            this.backImage = "Moon_Ealge";
+            this.valueDescription = "ONE DOLLAR";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
         }
     }
-        public String toString() {
-            return "[" + familiarName + "," + value + "," + year + ",'" + frontMotto + "','" + backMotto + "','"
-                    + frontImage + "','" + backImage + "','" + frontLabel + "','" + backLabel + "','" + valueDescription + "',"
-                    + (ridgedEdge ? "ridges" : "no-ridges") + ",'" + metallurgy + "']"; 
-        
-        }
 
-        public String getFamiliarName(){
-            return this.familiarName;
-        }
+    public Coin(double value, int year) {
+        this.value = value;
+        this.year = year;
 
-        public Double getValue() {
-            return this.value;
-        }
+        // Set properties common to all Coins according to the test file
+        this.frontMotto = "IN GOD WE TRUST";
+        this.backMotto = "E PLURIBUS UNUM";
+        this.frontLabel = "LIBERTY";
+        this.backLabel = "UNITED STATES OF AMERICA";
 
-        public String getFrontMotto(){
-            return this.frontMotto;
+        if (value == 0.01) {
+            this.familiarName = "Penny";
+            this.frontImage = "A_Lincoln";
+            this.backImage = "Lincoln_Memorial";
+            this.valueDescription = "ONE CENT";
+            this.ridgedEdge = false;
+            this.metallurgy = "Copper";
+        } else if (value == 0.05) {
+            this.familiarName = "Nickel";
+            this.frontImage = "T_Jefferson";
+            this.backImage = "Jefferson_Memorial";
+            this.valueDescription = "FIVE CENT";
+            this.ridgedEdge = false;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 0.10) {
+            this.familiarName = "Dime";
+            this.frontImage = "F_Roosevelt";
+            this.backImage = "Torch_Branches";
+            this.valueDescription = "ONE DIME";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 0.25) {
+            this.familiarName = "Quarter";
+            this.frontImage = "G_Washington";
+            this.backImage = "Eagle";
+            this.valueDescription = "QUARTER DOLLAR";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 0.50) {
+            this.familiarName = "HalfDollar";
+            this.frontImage = "J_Kennedy";
+            this.backImage = "Presidential_Seal";
+            this.valueDescription = "HALF DOLLAR";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
+        } else if (value == 1.00) {
+            this.familiarName = "Dollar";
+            this.frontImage = "S_Anthony";
+            this.backImage = "Moon_Ealge";
+            this.valueDescription = "ONE DOLLAR";
+            this.ridgedEdge = true;
+            this.metallurgy = "Cupro-Nickel";
         }
+    }
 
-        public String getBackMotto(){
-            return this.backMotto;
-        }
-
-        public String getFrontLabel() {
-            return this.frontLabel;
-        }
-
-        public String getBackLabel() {
-            return this.backLabel;
-        }
-
-        public String getFrontImage() {
-            return this.frontImage;
-        }
-
-        public String getBackImage() {
-            return this.backImage;
-        }
-
-        public String getValueDescription() {
-            return this.valueDescription;
-        }
-
-        public Boolean getRiggedEdge(){
-            return this.ridgedEdge;
-        }
-
-        public String getMetallurgy() {
-            return this.metallurgy;
-        }
-
-        
+    public String toString() {
+        return "[" + familiarName + "," + value + "," + year + ",'" + frontMotto + "','" + backMotto + "','"
+                + frontImage + "','" + backImage + "','" + frontLabel + "','" + backLabel + "','" + valueDescription
+                + "',"
+                + (ridgedEdge ? "ridges" : "no-ridges") + ",'" + metallurgy + "']";
 
     }
+
+    public String getFamiliarName() {
+        return this.familiarName;
+    }
+
+    public Double getValue() {
+        return this.value;
+    }
+
+    public String getFrontMotto() {
+        return this.frontMotto;
+    }
+
+    public String getBackMotto() {
+        return this.backMotto;
+    }
+
+    public String getFrontLabel() {
+        return this.frontLabel;
+    }
+
+    public String getBackLabel() {
+        return this.backLabel;
+    }
+
+    public String getFrontImage() {
+        return this.frontImage;
+    }
+
+    public String getBackImage() {
+        return this.backImage;
+    }
+
+    public String getValueDescription() {
+        return this.valueDescription;
+    }
+
+    public Boolean getRidgedEdge() {
+        return this.ridgedEdge;
+    }
+
+    public String getMetallurgy() {
+        return this.metallurgy;
+    }
+
+    public int getYear() {
+        return this.year;
+    }
+
+}
