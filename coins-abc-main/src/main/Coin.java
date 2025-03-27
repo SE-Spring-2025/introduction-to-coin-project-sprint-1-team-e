@@ -21,7 +21,7 @@ public abstract class Coin {
     private String metallurgy;
     private int manufactureYear;
 
-	public Coin(String familiarName, String frontMotto, int manufactureYear, String frontImage, String backImage, String backMotto, String frontLabel, String backLabel, String valueDescription, boolean ridgedEdge, String metallurgy){
+	public Coin(String familiarName, double value, String frontMotto, String backMotto, String frontLabel, String backLabel, String frontImage, String backImage, String valueDescription, boolean ridgedEdge, String metallurgy, int manufactureYear){
 		this.familiarName = familiarName;
 		this.frontMotto = frontMotto;
 		this.manufactureYear = manufactureYear;
@@ -34,7 +34,7 @@ public abstract class Coin {
 		this.ridgedEdge = ridgedEdge;
 		this.metallurgy = metallurgy;
 	}
-	
+
     public String getFamiliarName() {
 	return familiarName;
     }
