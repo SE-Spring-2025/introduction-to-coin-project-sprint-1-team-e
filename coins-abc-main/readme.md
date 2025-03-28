@@ -1,8 +1,9 @@
 # CS3667 Software Engineering - Dr. Nazia Sharmin - Appalachian State University
-
 # Coins Project - Group E 
 # Mitchel Carson, Andy Estrada, Jena Mena, Carson Taylor
+
 ## Sprint 2
+---------------------------------------------------------------------
 
 
 ## Process Description
@@ -13,13 +14,14 @@
 4. Write JUnit test classes for each concrete coin class (e.g., DimeTest, PennyTest, etc.).
 5. Write a Demo class that demonstrates our code satisfies the customer requirements.
 
----------------------------------------------------------------------
-## Executing Terminal Commands
+
+
+
+## Executing Terminal Commands via make (makefile)
 
 make clean
 
 make compile
----------------------------------------------------------------------
 
 # Run the Demo
 
@@ -29,6 +31,10 @@ make demo
 # Run the Tests
 
 make tests
+
+# Run 'Checkstyle'
+
+make check
 
 
 # tips
