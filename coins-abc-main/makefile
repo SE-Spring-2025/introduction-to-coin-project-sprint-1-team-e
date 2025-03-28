@@ -14,15 +14,18 @@ default:
 	@echo "________ make clean ; make compile ; make test ; make check"
 
 compile: $(JUNIT5_JAR)
-	-javac -d bin/client -cp .:src/main src/client/*.java
-	-javac -d bin/tests -cp .:$(JUNIT5_JAR):src/main src/tests/*.java
+	# First compile main classes
 	-javac -d bin/main -cp . src/main/*.java
+	# Then compile tests with main classes in classpath
+	-javac -d bin/tests -cp .:$(JUNIT5_JAR):bin/main src/tests/*.java
+	# Finally compile client
+	-javac -d bin/client -cp .:bin/main src/client/*.java
 
-test: $(JUNIT5_JAR)
-	java -cp bin/tests:bin/main:$(JUNIT5_JAR) $(JUNIT5_RUNNER) execute --select-directory bin/tests --include-engine junit-jupiter 
+test: compile $(JUNIT5_JAR)
+	java -cp bin/tests:bin/main:$(JUNIT5_JAR) $(JUNIT5_RUNNER) execute --select-class CoinTest --select-class PennyTest --select-class NikelTest --select-class QuaterTest --select-class DimeTest --select-class HalfDollarTest --select-class DollarTest --include-engine junit-jupiter
 
-demo: bin/client/Demo.class
-	java -cp .:bin/client:bin/main Demo
+demo: compile
+	java -cp bin/client:bin/main Demo
 
 check: styles.xml $(CKSTYLE_LIB)
 	java -jar $(CKSTYLE_LIB) -c ./styles.xml src/main/*.java

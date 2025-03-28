@@ -12,3 +12,27 @@
 3. Update CoinTest to support changes in the Coin class.
 4. Write JUnit test classes for each concrete coin class (e.g., DimeTest, PennyTest, etc.).
 5. Write a Demo class that demonstrates our code satisfies the customer requirements.
+
+---------------------------------------------------------------------
+## Executing Terminal Commands
+
+make clean
+
+make compile
+---------------------------------------------------------------------
+
+# Run the Demo
+
+make demo
+
+
+# Run the Tests
+
+make tests
+
+
+# tips
+Use the make commands in your terminal.
+Ensure your current directory is COINS-ABC-MAIN.
+Use the clean and compile command before trying the demo or testing.
+
