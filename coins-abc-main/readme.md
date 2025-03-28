@@ -1,9 +1,14 @@
-# Coins Project
-## Version 0.1
-* Folder and tool infrastructure
-* Basic Coin class with tests and demo
-* Team E met several times to Complete Sprint 1.
-* 1) We started by creating a repo in the Classrooms organization. 
-* 2) We attempted to complete the Coin.java CoinTest.java classes from scratch.
-* 3) We were able to get the tests to pass with specific -cp instructions but compiling with javac did  not work.
-* 4) We then realized that there was a zip folder that had the correct implementation and pushed that folder to our repo.
+# CS3667 Software Engineering - Dr. Nazia Sharmin - Appalachian State University
+
+# Coins Project - Group E 
+# Mitchel Carson, Andy Estrada, Jena Mena, Carson Taylor
+## Sprint 2
+
+
+## Process Description
+
+1. Refactor Coin as an abstract class.
+2. Create a two-level coin hierarchy with Coin at the top and concrete classes Dollar, HalfDollar, Quarter, Dime, Nickel, and Penny extending Coin. These classes must pass checkstyle and all unit tests.
+3. Update CoinTest to support changes in the Coin class.
+4. Write JUnit test classes for each concrete coin class (e.g., DimeTest, PennyTest, etc.).
+5. Write a Demo class that demonstrates our code satisfies the customer requirements.
