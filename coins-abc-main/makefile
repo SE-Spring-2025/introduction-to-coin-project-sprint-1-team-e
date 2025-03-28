@@ -19,7 +19,7 @@ compile: $(JUNIT5_JAR)
 	-javac -d bin/main -cp . src/main/*.java
 
 test: $(JUNIT5_JAR)
-	java -cp bin/tests:bin/main:$(JUNIT5_JAR) $(JUNIT5_RUNNER) execute --scan-class-path 
+	java -cp bin/tests:bin/main:$(JUNIT5_JAR) $(JUNIT5_RUNNER) execute --select-directory bin/tests --include-engine junit-jupiter 
 
 demo: bin/client/Demo.class
 	java -cp .:bin/client:bin/main Demo

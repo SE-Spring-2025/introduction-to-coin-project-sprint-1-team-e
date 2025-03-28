@@ -1,4 +1,3 @@
-import java.util.Calendar;
 import java.text.DecimalFormat;
 
 public abstract class Coin {
