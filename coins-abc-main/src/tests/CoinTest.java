@@ -122,7 +122,19 @@ public class CoinTest {
     
     @Test
     public void testMockCoinGetters() {
+		Coin testCoin = new MockCoin();
+		assertEquals("MockCoin", testCoin.getFamiliarName());
         assertEquals(24, testCoin.getValue());
+		assertEquals("IN GOD WE TRUST", testCoin.getFrontMotto());
+		assertEquals("E PLURIBUS UNUM", testCoin.getBackMotto());
+		assertEquals("LIBERTY", testCoin.getFrontLabel());
+		assertEquals("UNITED STATES OF AMERICA", testCoin.getBackLabel());
+		assertEquals("Mock_Front_Image", testCoin.getFrontImage());
+		assertEquals("Mock_Back_Image", testCoin.getBackImage());
+		assertEquals("Mock_Value_Description", testCoin.getValueDescription());
+		assertTrue(testCoin.getRidgedEdge());
+		assertEquals("Mock_Metallurgy", testCoin.getMetallurgy());
+		assertEquals(2025, testCoin.getYear());
     }
 }
 

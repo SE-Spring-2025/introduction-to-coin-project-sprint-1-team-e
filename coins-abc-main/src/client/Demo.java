@@ -58,7 +58,11 @@ public class Demo {
             printMenu();
             System.out.print("What coin to make? ");
             String response = keyboard.nextLine().trim();
-            switch (response.charAt(0)) {
+            if(response.isEmpty()){
+                System.out.println("No input entered, try again.");
+                continue;
+            }
+            switch (response.charAt(0)) {  // use single charAt(0)
                 case 'G':
                     System.out.println("Gonna make a Dollar coin...");
                     c = new Dollar();
