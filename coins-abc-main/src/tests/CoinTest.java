@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class CoinTest {
     private static int currYear;
+    private Coin testCoin = new MockCoin();
     
     @BeforeAll
     public static void getCurrYear() {
@@ -16,29 +17,41 @@ public class CoinTest {
 
     @Test
     public void testConstructors() {
-	// Basically just make sure they don't blow up
-	// parameterless constructor
+	// Use concrete subclasses rather than abstract Coin
 	try {
-	    Coin c = new Coin();
-	}
-	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	    Penny c = new Penny();
+	} catch (Exception e) {
+	    fail("Penny() constructor caused exception: " + e.getMessage());
 	}
 
-	// value arg constructor
 	try {
-	    Coin c = new Coin(0.05);
-	}
-	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	    Nickel c = new Nickel();
+	} catch (Exception e) {
+	    fail("Nickel() constructor caused exception: " + e.getMessage());
 	}
 
-	// value and year args constructor
 	try {
-	    Coin c = new Coin(0.10, 2020);
+	    Dime c = new Dime();  // or new Dime(2020) as desired
+	} catch (Exception e) {
+	    fail("Dime() constructor caused exception: " + e.getMessage());
 	}
-	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+
+	try {
+	    Quarter c = new Quarter();
+	} catch (Exception e) {
+	    fail("Quarter() constructor caused exception: " + e.getMessage());
+	}
+
+	try {
+	    HalfDollar c = new HalfDollar();
+	} catch (Exception e) {
+	    fail("HalfDollar() constructor caused exception: " + e.getMessage());
+	}
+
+	try {
+	    Dollar c = new Dollar();
+	} catch (Exception e) {
+	    fail("Dollar() constructor caused exception: " + e.getMessage());
 	}
 
 	// make it here then didn't fail!
@@ -60,13 +73,19 @@ public class CoinTest {
 
     @Test
     public void testToString() {
-	Coin c = new Coin(0.50, 1999);
+	// Use a concrete subclass; here HalfDollar is chosen with a specified year.
+	Coin c = new HalfDollar(1999);
 	String expectedOutput =
 	    "[HalfDollar,0.50,1999,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'J_Kennedy','Presidential_Seal','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','HALF DOLLAR',ridges"
 	    + ",'Cupro-Nickel']";
 	assertEquals(expectedOutput, c.toString());
+    }
+
+    @Test
+    public void testMockCoinGetters() {
+        assertEquals(24, testCoin.getValue());
     }
 
     //---------------------------------------------------------
@@ -77,7 +96,8 @@ public class CoinTest {
 	return Math.abs(a-b) < 0.00001;
     }
     private boolean testPenny() {
-	Coin c = new Coin(Coin.PENNY_VALUE);
+	// Use Penny concrete subclass rather than direct Coin instantiation
+	Coin c = new Penny();
 	
 	if (! "Penny".equals(c.getFamiliarName())) return false;
 	if (! cmpDoubles(c.getValue(), Coin.PENNY_VALUE)) return false;
@@ -96,7 +116,8 @@ public class CoinTest {
 	return true;
     }
     private boolean testNickel() {
-	Coin c = new Coin(Coin.NICKEL_VALUE);
+	// Use Nickel concrete subclass
+	Coin c = new Nickel();
 	
 	if (! "Nickel".equals(c.getFamiliarName())) return false;
 	if (! cmpDoubles(c.getValue(), Coin.NICKEL_VALUE)) return false;
@@ -115,7 +136,8 @@ public class CoinTest {
 	return true;
     }
     private boolean testDime() {
-	Coin c = new Coin(Coin.DIME_VALUE);
+	// Use Dime concrete subclass
+	Coin c = new Dime();
 	
 	if (! "Dime".equals(c.getFamiliarName())) return false;
 	if (! cmpDoubles(c.getValue(), Coin.DIME_VALUE)) return false;
@@ -134,7 +156,8 @@ public class CoinTest {
 	return true;
     }
     private boolean testQuarter() {
-	Coin c = new Coin(Coin.QUARTER_VALUE);
+	// Use Quarter concrete subclass
+	Coin c = new Quarter();
 	
 	if (! "Quarter".equals(c.getFamiliarName())) return false;
 	if (! cmpDoubles(c.getValue(), Coin.QUARTER_VALUE)) return false;
@@ -153,7 +176,8 @@ public class CoinTest {
 	return true;
     }
     private boolean testHalfDollar() {
-	Coin c = new Coin(Coin.HALFDOLLAR_VALUE);
+	// Use HalfDollar concrete subclass
+	Coin c = new HalfDollar();
 	
 	if (! "HalfDollar".equals(c.getFamiliarName())) return false;
 	if (! cmpDoubles(c.getValue(), Coin.HALFDOLLAR_VALUE)) return false;
@@ -172,7 +196,8 @@ public class CoinTest {
 	return true;
     }
     private boolean testDollar() {
-	Coin c = new Coin(Coin.DOLLAR_VALUE);
+	// Use Dollar concrete subclass
+	Coin c = new Dollar();
 	
 	if (! "Dollar".equals(c.getFamiliarName())) return false;
 	if (! cmpDoubles(c.getValue(), Coin.DOLLAR_VALUE)) return false;
@@ -191,4 +216,5 @@ public class CoinTest {
 	return true;
     }
 }
-    
+
+
