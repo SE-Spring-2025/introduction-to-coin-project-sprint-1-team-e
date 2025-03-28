@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Calendar;
 
 public class Demo {
     private static Scanner keyboard = new Scanner(System.in);
@@ -11,28 +12,57 @@ public class Demo {
         interactiveDemo();
         
         System.out.println();
+        printSeparator();
         System.out.println("Thanks for watching the CoinFlips Demo.");
         System.out.println("Have a wonderful day!");
     }
     
+    // New helper method for formatting
+    private static void printSeparator() {
+        System.out.println("--------------------------------------------------");
+    }
+    
     private static void fixedDemo() {
-        System.out.println("\nDemonstrating coin creation via fixedDemo:");
-        System.out.println("Making a Penny()");
-        System.out.println("Result: " + new Penny());
-        System.out.println("Making a Nickel()");
-        System.out.println("Result: " + new Nickel());
-        System.out.println("Making a Dime()");
-        System.out.println("Result: " + new Dime());
-        System.out.println("Making a Quarter()");
-        System.out.println("Result: " + new Quarter());
-        System.out.println("Making a HalfDollar()");
-        System.out.println("Result: " + new HalfDollar());
-        System.out.println("Making a Dollar()");
-        System.out.println("Result: " + new Dollar());
+        System.out.println();
+        printSeparator();
+        System.out.println("Coin Creation via fixedDemo:");
+        printSeparator();
+        
+        // Penny
+        System.out.println("> Creating: Penny()");
+        System.out.println("  [Result] " + new Penny());
+        printSeparator();
+        
+        // Nickel
+        System.out.println("> Creating: Nickel()");
+        System.out.println("  [Result] " + new Nickel());
+        printSeparator();
+        
+        // Dime
+        System.out.println("> Creating: Dime()");
+        System.out.println("  [Result] " + new Dime());
+        printSeparator();
+        
+        // Quarter
+        System.out.println("> Creating: Quarter()");
+        System.out.println("  [Result] " + new Quarter());
+        printSeparator();
+        
+        // HalfDollar
+        System.out.println("> Creating: HalfDollar()");
+        System.out.println("  [Result] " + new HalfDollar());
+        printSeparator();
+        
+        // Dollar
+        System.out.println("> Creating: Dollar()");
+        System.out.println("  [Result] " + new Dollar());
+        printSeparator();
     }
     
     private static void printMenu() {
-        System.out.println("\nI'm ready to make you a coin!");
+        System.out.println();
+        printSeparator();
+        System.out.println("I'm ready to make you a coin!");
         System.out.println("Enter G for a Dollar coin.");
         System.out.println("Enter H for a HalfDollar coin.");
         System.out.println("Enter Q for a Quarter coin.");
@@ -40,60 +70,68 @@ public class Demo {
         System.out.println("Enter N for a Nickel coin.");
         System.out.println("Enter P for a Penny coin.");
         System.out.println("Enter X to exit the demo.");
-        System.out.println();
+        printSeparator();
     }
     
     private static void interactiveDemo() {
-        System.out.println("\nWould you like to make more coins yourself? (Y/n) ");
-        String response = keyboard.nextLine().trim();
-        if (response.charAt(0) == 'Y' || response.charAt(0) == 'y') {
-            runDemo();
+        while(true) {
+            System.out.println();
+            System.out.print("Would you like to make more coins yourself? (Y/n) ");
+            String response = keyboard.nextLine().trim();
+            if(response.isEmpty() || !(response.charAt(0)=='Y' || response.charAt(0)=='y')) {
+                break;
+            }
+            runDemo(); // process one coin creation then return
         }
     }
     
     private static void runDemo() {
         Coin c;
-        while (true) {
-            System.out.println();
-            printMenu();
-            System.out.print("What coin to make? ");
-            String response = keyboard.nextLine().trim();
-            if(response.isEmpty()){
-                System.out.println("No input entered, try again.");
-                continue;
-            }
-            switch (response.charAt(0)) {  // use single charAt(0)
-                case 'G':
-                    System.out.println("Gonna make a Dollar coin...");
-                    c = new Dollar();
-                    break;
-                case 'H':
-                    System.out.println("Gonna make a HalfDollar coin...");
-                    c = new HalfDollar();
-                    break;
-                case 'Q':
-                    System.out.println("Gonna make a Quarter coin...");
-                    c = new Quarter();
-                    break;
-                case 'D':
-                    System.out.println("Gonna make a Dime coin...");
-                    c = new Dime();
-                    break;
-                case 'N':
-                    System.out.println("Gonna make a Nickel coin...");
-                    c = new Nickel();
-                    break;
-                case 'P':
-                    System.out.println("Gonna make a Penny coin...");
-                    c = new Penny();
-                    break;
-                case 'X':
-                    return;
-                default:
-                    System.out.println("Invalid entry, try again.");
-                    continue;
-            }
-            System.out.println("Result: " + c);
+        Calendar cal = Calendar.getInstance();
+        int curYear = cal.get(Calendar.YEAR);
+        
+        System.out.println();
+        printMenu();
+        System.out.print("What coin to make? ");
+        String response = keyboard.nextLine().trim();
+        if(response.isEmpty()){
+            System.out.println("No input entered.");
+            return;
         }
+        char option = Character.toUpperCase(response.charAt(0));
+        switch (option) {  // convert to uppercase so any case works
+            case 'G':
+                System.out.println("> Creating: Dollar coin...");
+                c = new Dollar(curYear);
+                break;
+            case 'H':
+                System.out.println("> Creating: HalfDollar coin...");
+                c = new HalfDollar(curYear);
+                break;
+            case 'Q':
+                System.out.println("> Creating: Quarter coin...");
+                c = new Quarter(curYear);
+                break;
+            case 'D':
+                System.out.println("> Creating: Dime coin...");
+                c = new Dime(curYear);
+                break;
+            case 'N':
+                System.out.println("> Creating: Nickel coin...");
+                c = new Nickel(curYear);
+                break;
+            case 'P':
+                System.out.println("> Creating: Penny coin...");
+                c = new Penny(curYear);
+                break;
+            case 'X':
+                return;
+            default:
+                System.out.println("Invalid entry.");
+                return;
+        }
+        printSeparator();
+        System.out.println("  [Result] " + c);
+        printSeparator();
     }
 }
