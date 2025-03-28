@@ -22,7 +22,7 @@ compile: $(JUNIT5_JAR)
 	-javac -d bin/client -cp .:bin/main src/client/*.java
 
 test: compile $(JUNIT5_JAR)
-	java -cp bin/tests:bin/main:$(JUNIT5_JAR) $(JUNIT5_RUNNER) execute --select-class CoinTest --select-class PennyTest --select-class NikelTest --select-class QuaterTest --select-class DimeTest --select-class HalfDollarTest --select-class DollarTest --include-engine junit-jupiter
+	java -cp bin/tests:bin/main:$(JUNIT5_JAR) $(JUNIT5_RUNNER) execute --select-class CoinTest --select-class PennyTest --select-class NickelTest --select-class QuarterTest --select-class DimeTest --select-class HalfDollarTest --select-class DollarTest --include-engine junit-jupiter
 
 demo: compile
 	java -cp bin/client:bin/main Demo
