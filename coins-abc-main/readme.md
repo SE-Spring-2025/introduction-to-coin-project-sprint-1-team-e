@@ -26,7 +26,7 @@ make demo
 
 # Run the Tests
 
-make tests
+make test
 
 # Run 'Checkstyle'
 
