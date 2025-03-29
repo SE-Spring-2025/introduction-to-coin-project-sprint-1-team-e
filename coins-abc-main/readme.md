@@ -23,7 +23,6 @@ make compile
 
 make demo
 
-
 # Run the Tests
 
 make test
@@ -31,7 +30,6 @@ make test
 # Run 'Checkstyle'
 
 make check
-
 
 # tips
 Use the make commands in your terminal.
