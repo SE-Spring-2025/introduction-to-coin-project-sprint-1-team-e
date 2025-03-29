@@ -1,10 +1,25 @@
-import java.time.ZonedDateTime;
-
-public class Quarter extends Coin{
-    public Quarter(){
-        super("Quarter", 0.25, "IN GOD WE TRUST", "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel", 2025);
+/**
+ * Quarter coin class.
+ * @author Team E
+ * @version 1.0
+ */
+public class Quarter extends Coin {
+    /**
+     * Default constructor for Quarter.
+     */
+    public Quarter() {
+        super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
+            "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel", DEFAULT_YEAR);
     }
-    public Quarter(int year){
-        super("Quarter", 0.25, "IN GOD WE TRUST", "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel", year);
+    
+    /**
+     * Constructor for Quarter with specific year.
+     * @param year the year of manufacture
+     */
+    public Quarter(int year) {
+        super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
+            "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel", year);
     }
 }

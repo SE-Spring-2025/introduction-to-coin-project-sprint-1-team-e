@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class QuaterTest {
+public class QuarterTest {
     @Test
     public void testConstructor() {
         Quarter q = new Quarter(2000);

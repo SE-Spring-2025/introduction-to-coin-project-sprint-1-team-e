@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class NikelTest {
+public class NickelTest {
     @Test
     public void testConstructor() {
         Nickel n = new Nickel(2025);

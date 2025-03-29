@@ -1,8 +1,25 @@
+/**
+ * Dollar coin class.
+ * @author Team E
+ * @version 1.0
+ */
 public class Dollar extends Coin {
-    public Dollar(){
-        super("Dollar", 1.00, "IN GOD WE TRUST", "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", "Moon_Eagle", "ONE DOLLAR", true, "Cupro-Nickel", 2025);
+    /**
+     * Default constructor for Dollar.
+     */
+    public Dollar() {
+        super("Dollar", DOLLAR_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", 
+            "Moon_Eagle", "ONE DOLLAR", true, "Cupro-Nickel", DEFAULT_YEAR);
     }
-    public Dollar(int year){
-        super("Dollar", 1.00, "IN GOD WE TRUST", "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", "Moon_Eagle", "ONE DOLLAR", true, "Cupro-Nickel", year);
+    
+    /**
+     * Constructor for Dollar with specific year.
+     * @param year the year of manufacture
+     */
+    public Dollar(int year) {
+        super("Dollar", DOLLAR_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", 
+            "Moon_Eagle", "ONE DOLLAR", true, "Cupro-Nickel", year);
     }
 }
