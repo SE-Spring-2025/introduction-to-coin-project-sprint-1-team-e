@@ -1,9 +1,11 @@
-# CS3667 Software Engineering - Dr. Nazia Sharmin - Appalachian State University
-# Coins Project - Group E 
-# Mitchel Carson, Andy Estrada, Jena Mena, Carson Taylor
----------------------------------------------------------------------
-## Sprint 2
+# CS3667 Software Engineering 
+# Dr. Nazia Sharmin
+# Appalachian State University
 
+# Coins Project - Group E - Sprint 2
+# Mitchel Carson, Andy Estrada, Jena Mena, Carson Taylor
+
+# Sprint2
 ## Process Description
 
 1. Refactor Coin as an abstract class.
