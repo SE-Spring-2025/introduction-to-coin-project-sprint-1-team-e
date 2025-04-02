@@ -10,7 +10,7 @@ public class Nickel extends Coin {
     public Nickel() {
         super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, "Cupro-Nickel", 
+            "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), 
             DEFAULT_YEAR);
     }
     
@@ -21,6 +21,6 @@ public class Nickel extends Coin {
     public Nickel(int year) {
         super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, "Cupro-Nickel", year);
+            "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), year);
     }
 }
