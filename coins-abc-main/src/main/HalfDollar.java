@@ -11,7 +11,7 @@ public class HalfDollar extends Coin {
         super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
             "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
             "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            new CuproNickle(), DEFAULT_YEAR);
+            new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -22,7 +22,7 @@ public class HalfDollar extends Coin {
         super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
             "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
             "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            new CuproNickle(), year);
+            new CuproNickel(), year);
     }
     
     /**

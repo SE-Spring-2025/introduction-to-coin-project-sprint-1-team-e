@@ -71,7 +71,7 @@ public class Demo {
         System.out.println("> Standard Penny: " + standardPenny);
         
         // Create a penny with cupro-nickel metallurgy
-        Penny specialPenny = new Penny(2023, new CuproNickle());
+        Penny specialPenny = new Penny(2023, new CuproNickel());
         System.out.println("> Special Penny with Cupro-Nickel: " + specialPenny);
         
         // Change a nickel's metallurgy to copper
@@ -150,7 +150,7 @@ public class Demo {
                 break;
             case 'S':
                 System.out.println("> Creating: Special Penny with Cupro-Nickel...");
-                c = new Penny(curYear, new CuproNickle());
+                c = new Penny(curYear, new CuproNickel());
                 break;
             case 'X':
                 return;

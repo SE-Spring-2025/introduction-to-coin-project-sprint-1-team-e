@@ -10,7 +10,7 @@ public class Quarter extends Coin {
     public Quarter() {
         super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
-            "Eagle", "QUARTER DOLLAR", true, new CuproNickle(), DEFAULT_YEAR);
+            "Eagle", "QUARTER DOLLAR", true, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -20,7 +20,7 @@ public class Quarter extends Coin {
     public Quarter(int year) {
         super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
-            "Eagle", "QUARTER DOLLAR", true, new CuproNickle(), year);
+            "Eagle", "QUARTER DOLLAR", true, new CuproNickel(), year);
     }
     
     /**

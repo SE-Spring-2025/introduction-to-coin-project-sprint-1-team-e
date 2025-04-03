@@ -11,7 +11,7 @@ public class Dime extends Coin {
         super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
             "Torch_Branches", "ONE DIME", true, 
-            new CuproNickle(), DEFAULT_YEAR);
+            new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -22,7 +22,7 @@ public class Dime extends Coin {
         super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
             "Torch_Branches", "ONE DIME", true, 
-            new CuproNickle(), year);
+            new CuproNickel(), year);
     }
     
     /**

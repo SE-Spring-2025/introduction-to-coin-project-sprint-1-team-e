@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class CuproNickelTest {
     @Test
     public void testSmelt() {
-        CuproNickle cuproNickel = new CuproNickle();
+        CuproNickel cuproNickel = new CuproNickel();
         assertEquals("Cupro-Nickel", cuproNickel.smelt());
     }
 }

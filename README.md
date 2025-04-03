@@ -8,7 +8,6 @@
 # Sprint 3
 ## Process Description
 
-
 1.  Create Metallurgy hierarchy (interface and concrete classes).
 2.  Test the concrete Metallurgy implementations of the interface. (The interface does not
 need a test because it has no executable code.)

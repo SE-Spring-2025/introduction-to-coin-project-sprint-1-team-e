@@ -144,11 +144,11 @@ public class CoinTest {
         assertEquals("Copper", penny.getMetallurgy());
         
         // Change metallurgy to Cupro-Nickel
-        penny.setSmelter(new CuproNickle());
+        penny.setSmelter(new CuproNickel());
         assertEquals("Cupro-Nickel", penny.getMetallurgy());
         
         // Test construction with a specific metallurgy
-        Penny specialPenny = new Penny(2023, new CuproNickle());
+        Penny specialPenny = new Penny(2023, new CuproNickel());
         assertEquals("Cupro-Nickel", specialPenny.getMetallurgy());
         
         // Test that mockCoin uses MockMetallurgy
