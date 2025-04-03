@@ -10,7 +10,8 @@ public class Dime extends Coin {
     public Dime() {
         super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, "Cupro-Nickel", DEFAULT_YEAR);
+            "Torch_Branches", "ONE DIME", true, 
+            new CuproNickle(), DEFAULT_YEAR);
     }
     
     /**
@@ -20,6 +21,19 @@ public class Dime extends Coin {
     public Dime(int year) {
         super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, "Cupro-Nickel", year);
+            "Torch_Branches", "ONE DIME", true, 
+            new CuproNickle(), year);
+    }
+    
+    /**
+     * Constructor for Dime with specific year and metallurgy.
+     * @param year the year of manufacture
+     * @param smelter the metallurgy strategy
+     */
+    public Dime(int year, Metallurgy smelter) {
+        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
+            "Torch_Branches", "ONE DIME", true, 
+            smelter, year);
     }
 }

@@ -33,6 +33,7 @@ public abstract class Coin {
     private boolean ridgedEdge;
     private String metallurgy;
     private int manufactureYear;
+    private Metallurgy smelter;
     
     /**
      * Constructor for Coin class.
@@ -46,13 +47,13 @@ public abstract class Coin {
      * @param backImage the image on the back of the coin
      * @param valueDescription the description of the coin's value
      * @param ridgedEdge whether the coin has a ridged edge
-     * @param metallurgy the metal composition of the coin
+     * @param smelter the metallurgy strategy for the coin
      * @param manufactureYear the year the coin was manufactured
      */
     public Coin(String familiarName, double value, String frontMotto, 
                 String backMotto, String frontLabel, String backLabel, 
                 String frontImage, String backImage, String valueDescription, 
-                boolean ridgedEdge, String metallurgy, int manufactureYear) {
+                boolean ridgedEdge, Metallurgy smelter, int manufactureYear) {
         this.familiarName = familiarName;
         this.value = value;
         this.frontMotto = frontMotto;
@@ -64,7 +65,15 @@ public abstract class Coin {
         this.backLabel = backLabel;
         this.valueDescription = valueDescription;
         this.ridgedEdge = ridgedEdge;
-        this.metallurgy = metallurgy;
+        this.smelter = smelter;
+        smelt();
+    }
+
+    /**
+     * Uses the smelter to set the metallurgy.
+     */
+    public void smelt() {
+        this.metallurgy = smelter.smelt();
     }
 
     /**
@@ -161,6 +170,23 @@ public abstract class Coin {
      */
     public int getYear() {
         return manufactureYear;
+    }
+
+    /**
+     * Gets the metallurgy delegate of the coin.
+     * @return the metallurgy delegate
+     */
+    public Metallurgy getSmelter() {
+        return smelter;
+    }
+    
+    /**
+     * Sets the metallurgy delegate of the coin.
+     * @param smelter the new metallurgy delegate
+     */
+    public void setSmelter(Metallurgy smelter) {
+        this.smelter = smelter;
+        smelt();
     }
 
     /**
