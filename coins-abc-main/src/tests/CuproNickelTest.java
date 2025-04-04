@@ -1,10 +1,10 @@
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CuproNickelTest {
     @Test
-    //public void testConstructor() {
-        //CuproNickel cn = new CuproNickel();
-        //assertEquals()
-    //}
+    public void testSmelt() {
+        CuproNickel cuproNickel = new CuproNickel();
+        assertEquals("Cupro-Nickel", cuproNickel.smelt());
+    }
 }

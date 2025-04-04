@@ -10,7 +10,7 @@ public class Quarter extends Coin {
     public Quarter() {
         super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
-            "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel", DEFAULT_YEAR);
+            "Eagle", "QUARTER DOLLAR", true, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -20,6 +20,17 @@ public class Quarter extends Coin {
     public Quarter(int year) {
         super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
             "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
-            "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel", year);
+            "Eagle", "QUARTER DOLLAR", true, new CuproNickel(), year);
+    }
+    
+    /**
+     * Constructor for Quarter with specific year and metallurgy.
+     * @param year the year of manufacture
+     * @param smelter the metallurgy strategy
+     */
+    public Quarter(int year, Metallurgy smelter) {
+        super("Quarter", QUARTER_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
+            "Eagle", "QUARTER DOLLAR", true, smelter, year);
     }
 }

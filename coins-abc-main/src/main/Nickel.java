@@ -23,4 +23,15 @@ public class Nickel extends Coin {
             "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
             "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), year);
     }
+    
+    /**
+     * Constructor for Nickel with specific year and metallurgy.
+     * @param year the year of manufacture
+     * @param smelter the metallurgy strategy
+     */
+    public Nickel(int year, Metallurgy smelter) {
+        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
+            "Jefferson_Memorial", "FIVE CENTS", false, smelter, year);
+    }
 }
