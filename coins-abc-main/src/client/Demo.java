@@ -7,7 +7,8 @@ public class Demo {
     public static void main(String[] args) {
         System.out.println();
         System.out.println("Welcome to the CoinFlips Demo!");
-        
+        System.out.println("Team E");
+
         fixedDemo();
         metallurgyDemo();
         interactiveDemo();
