@@ -5,6 +5,6 @@
  */
 public class CuproNickel implements Metallurgy {
     public String smelt() {
-        return "Smelting Cupro-Nickel...";
+        return "Cupro-Nickel";
     }
 }
