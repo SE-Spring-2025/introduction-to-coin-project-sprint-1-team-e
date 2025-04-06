@@ -122,19 +122,52 @@ public class CoinTest {
     
     @Test
     public void testMockCoinGetters() {
-		Coin testCoin = new MockCoin();
-		assertEquals("MockCoin", testCoin.getFamiliarName());
+        Coin testCoin = new MockCoin();
+        assertEquals("MockCoin", testCoin.getFamiliarName());
         assertEquals(24, testCoin.getValue());
-		assertEquals("IN GOD WE TRUST", testCoin.getFrontMotto());
-		assertEquals("E PLURIBUS UNUM", testCoin.getBackMotto());
-		assertEquals("LIBERTY", testCoin.getFrontLabel());
-		assertEquals("UNITED STATES OF AMERICA", testCoin.getBackLabel());
-		assertEquals("Mock_Front_Image", testCoin.getFrontImage());
-		assertEquals("Mock_Back_Image", testCoin.getBackImage());
-		assertEquals("Mock_Value_Description", testCoin.getValueDescription());
-		assertTrue(testCoin.getRidgedEdge());
-		assertEquals("Mock_Metallurgy", testCoin.getMetallurgy());
-		assertEquals(2025, testCoin.getYear());
+        assertEquals("IN GOD WE TRUST", testCoin.getFrontMotto());
+        assertEquals("E PLURIBUS UNUM", testCoin.getBackMotto());
+        assertEquals("LIBERTY", testCoin.getFrontLabel());
+        assertEquals("UNITED STATES OF AMERICA", testCoin.getBackLabel());
+        assertEquals("Mock_Front_Image", testCoin.getFrontImage());
+        assertEquals("Mock_Back_Image", testCoin.getBackImage());
+        assertEquals("Mock_Value_Description", testCoin.getValueDescription());
+        assertTrue(testCoin.getRidgedEdge());
+        assertEquals("Mock_Metallurgy", testCoin.getMetallurgy());
+        assertEquals(2025, testCoin.getYear());
+    }
+    
+    @Test
+    public void testMetallurgyStrategy() {
+        // Test changing metallurgy using the strategy pattern
+        Penny penny = new Penny(2023);
+        assertEquals("Copper", penny.getMetallurgy());
+        
+        // Change metallurgy to Cupro-Nickel
+        penny.setSmelter(new CuproNickel());
+        assertEquals("Cupro-Nickel", penny.getMetallurgy());
+        
+        // Test construction with a specific metallurgy
+        Penny specialPenny = new Penny(2023, new CuproNickel());
+        assertEquals("Cupro-Nickel", specialPenny.getMetallurgy());
+        
+        // Test that mockCoin uses MockMetallurgy
+        MockCoin mockCoin = new MockCoin();
+        assertEquals("Mock_Metallurgy", mockCoin.getMetallurgy());
+        
+        // Change mockCoin's metallurgy
+        mockCoin.setSmelter(new Copper());
+        assertEquals("Copper", mockCoin.getMetallurgy());
+    }
+}
+
+/**
+ * Mock implementation of the Metallurgy interface for testing purposes.
+ */
+class MockMetallurgy implements Metallurgy {
+    @Override
+    public String smelt() {
+        return "Mock_Metallurgy";
     }
 }
 
@@ -144,7 +177,7 @@ class MockCoin extends Coin {
               "IN GOD WE TRUST", "E PLURIBUS UNUM", 
               "LIBERTY", "UNITED STATES OF AMERICA", 
               "Mock_Front_Image", "Mock_Back_Image", 
-              "Mock_Value_Description", true, "Mock_Metallurgy", 2025);
+              "Mock_Value_Description", true, new MockMetallurgy(), 2025);
     }
 }
 

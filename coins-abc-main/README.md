@@ -3,7 +3,7 @@
 # Appalachian State University
 
 # Coins Project - Group E - Sprint 3
-# Mitchel Carson, Andy Estrada, Jenna Mena, Carson Taylor
+# Mitchel Carson, Andy Estrada, Jena Mena, Carson Taylor
 
 # Sprint 3
 ## Process Description
@@ -22,7 +22,6 @@ create a Penny with a different metallurgy now.
 
 ## Metallurgy Strategy Pattern
 The code defines a Metallurgy interface with a single smelt() method. Concrete classes like Copper and CuproNickle each implement this interface, returning a different metallurgy string. Every Coin holds a reference (the “smelter” field) to one of these concrete classes, and delegates the smelt() call to it. This way, each coin can change its metallurgy behavior at runtime by swapping out the smelter object, demonstrating the Strategy pattern.
-
 
 ## Executing Terminal Commands via make (makefile)
 

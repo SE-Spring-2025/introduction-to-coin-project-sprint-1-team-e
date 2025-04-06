@@ -9,6 +9,7 @@ public class Demo {
         System.out.println("Welcome to the CoinFlips Demo!");
         
         fixedDemo();
+        metallurgyDemo();
         interactiveDemo();
         
         System.out.println();
@@ -59,6 +60,28 @@ public class Demo {
         printSeparator();
     }
     
+    private static void metallurgyDemo() {
+        System.out.println();
+        printSeparator();
+        System.out.println("Metallurgy Strategy Demo:");
+        printSeparator();
+        
+        // Create a penny with standard copper metallurgy
+        Penny standardPenny = new Penny(2023);
+        System.out.println("> Standard Penny: " + standardPenny);
+        
+        // Create a penny with cupro-nickel metallurgy
+        Penny specialPenny = new Penny(2023, new CuproNickel());
+        System.out.println("> Special Penny with Cupro-Nickel: " + specialPenny);
+        
+        // Change a nickel's metallurgy to copper
+        Nickel standardNickel = new Nickel(2023);
+        System.out.println("> Standard Nickel: " + standardNickel);
+        standardNickel.setSmelter(new Copper());
+        System.out.println("> Nickel after changing to Copper: " + standardNickel);
+        printSeparator();
+    }
+    
     private static void printMenu() {
         System.out.println();
         printSeparator();
@@ -69,6 +92,7 @@ public class Demo {
         System.out.println("Enter D for a Dime coin.");
         System.out.println("Enter N for a Nickel coin.");
         System.out.println("Enter P for a Penny coin.");
+        System.out.println("Enter S for a Special Penny (with Cupro-Nickel).");
         System.out.println("Enter X to exit the demo.");
         printSeparator();
     }
@@ -123,6 +147,10 @@ public class Demo {
             case 'P':
                 System.out.println("> Creating: Penny coin...");
                 c = new Penny(curYear);
+                break;
+            case 'S':
+                System.out.println("> Creating: Special Penny with Cupro-Nickel...");
+                c = new Penny(curYear, new CuproNickel());
                 break;
             case 'X':
                 return;
