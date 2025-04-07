@@ -3,7 +3,7 @@
 # Appalachian State University
 
 # Coins Project - Group E - Sprint 3
-# Mitchel Carson, Andy Estrada, Jena Mena, Carson Taylor
+# Mitchel Carson, Andy Estrada, Jenna Mena, Carson Taylor
 
 # Sprint 3
 ## Process Description
