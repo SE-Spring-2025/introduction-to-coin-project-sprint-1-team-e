@@ -193,6 +193,10 @@ public abstract class Coin {
         smelt();
     }
 
+    /**
+     * Gets the amount of coins.
+     * @return coinCounts
+     */
     public static CoinCounts getCoinCounts() {
         return coinCounts;
     }
