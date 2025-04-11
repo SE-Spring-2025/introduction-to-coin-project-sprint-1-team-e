@@ -50,9 +50,9 @@ public class Demo {
         TotalCoinsDashboard totalDashboard = new TotalCoinsDashboard();
         QuarterCounterDashboard quarterDashboard = new QuarterCounterDashboard();
         
-        // Position dashboards on screen
+        // Position dashboards side by side instead of vertically stacked
         totalDashboard.setLocation(100, 100);
-        quarterDashboard.setLocation(100, 250);
+        quarterDashboard.setLocation(520, 100); // Position to the right of the total dashboard
         
         // Register dashboards as observers
         coinCounter.addObserver(totalDashboard);
