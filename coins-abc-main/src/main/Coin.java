@@ -1,4 +1,6 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Abstract class representing a US coin.
@@ -34,6 +36,8 @@ public abstract class Coin {
     private String metallurgy;
     private int manufactureYear;
     private Metallurgy smelter;
+    private static CoinCounts coinCounts = new CoinCounts();
+
     
     /**
      * Constructor for Coin class.
@@ -187,6 +191,10 @@ public abstract class Coin {
     public void setSmelter(Metallurgy smelter) {
         this.smelter = smelter;
         smelt();
+    }
+
+    public static CoinCounts getCoinCounts() {
+        return coinCounts;
     }
 
     /**
