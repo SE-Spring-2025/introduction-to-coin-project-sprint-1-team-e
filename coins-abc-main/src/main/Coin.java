@@ -20,6 +20,8 @@ public abstract class Coin {
     public static final double DOLLAR_VALUE = 1.00;
     /** Default year constant. */
     public static final int DEFAULT_YEAR = 2025;
+    /** Coin counter for all coins. */
+    private static final CoinCounts COIN_COUNTS = new CoinCounts();
     
     private String familiarName;
     private double value;
@@ -34,6 +36,7 @@ public abstract class Coin {
     private String metallurgy;
     private int manufactureYear;
     private Metallurgy smelter;
+
     
     /**
      * Constructor for Coin class.
@@ -187,6 +190,10 @@ public abstract class Coin {
     public void setSmelter(Metallurgy smelter) {
         this.smelter = smelter;
         smelt();
+    }
+
+    public static CoinCounts getCoinCounts() {
+        return COIN_COUNTS;
     }
 
     /**
