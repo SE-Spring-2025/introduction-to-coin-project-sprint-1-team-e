@@ -8,6 +8,7 @@ The goal of the sprint is to add "dashboards" as observers. And, as always, our 
 3. Add a "total coins" dashboard observer that watches the CoinCounts object.
 4. Add a "quarter counter" dashboard observe that watches the CoinCounts object.
 6. Write a Demo class that adds to its demonstration of our code. We should be able to choose different coin creations and see the dashboards change automatically.
+
 ### Domain details
 The Treasury Department undersecretary is very happy with your progress so far! In fact, they want a "dashboard" to see how things are progressing. In particular, they want to see the total number of coins being manufactured and separately the number of quarters.
 
