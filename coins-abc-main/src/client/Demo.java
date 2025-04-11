@@ -169,7 +169,9 @@ public class Demo {
             System.out.print("Would you like to make more coins yourself? (Y/n) ");
             String response = keyboard.nextLine().trim();
             if(response.isEmpty() || !(response.charAt(0)=='Y' || response.charAt(0)=='y')) {
-                break;
+                keyboard.close();
+                System.out.println("Exiting the demo.");
+                System.exit(0);
             }
             runDemo(); // process one coin creation then return
         }
