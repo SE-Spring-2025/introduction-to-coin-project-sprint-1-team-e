@@ -1,6 +1,4 @@
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Abstract class representing a US coin.
@@ -22,6 +20,8 @@ public abstract class Coin {
     public static final double DOLLAR_VALUE = 1.00;
     /** Default year constant. */
     public static final int DEFAULT_YEAR = 2025;
+    /** Coin counter for all coins. */
+    private static final CoinCounts COIN_COUNTS = new CoinCounts();
     
     private String familiarName;
     private double value;
@@ -36,7 +36,6 @@ public abstract class Coin {
     private String metallurgy;
     private int manufactureYear;
     private Metallurgy smelter;
-    private static CoinCounts coinCounts = new CoinCounts();
 
     
     /**
@@ -194,7 +193,7 @@ public abstract class Coin {
     }
 
     public static CoinCounts getCoinCounts() {
-        return coinCounts;
+        return COIN_COUNTS;
     }
 
     /**
