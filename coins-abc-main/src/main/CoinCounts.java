@@ -3,7 +3,7 @@ import java.util.*;
 public class CoinCounts {
     private int totalCoins;
     private int quarterCount;
-    private List<CoinCountsObserver> observers;
+    private ArrayList<CoinCountsObserver> observers;
 
     public CoinCounts() {
         this.totalCoins = 0;
