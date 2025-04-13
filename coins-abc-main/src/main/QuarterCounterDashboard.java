@@ -18,11 +18,17 @@ public class QuarterCounterDashboard extends JFrame implements CoinCountsObserve
         setTitle("Quarter Counter Dashboard");
         setSize(300, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         quarterCountLabel = new JLabel("Quarter Count: 0");
+        quarterCountLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
+        quarterCountLabel.setForeground(new Color(50, 50, 150)); // Dark blue
+        quarterCountLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
+        quarterCountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
         add(quarterCountLabel);
 
+        getContentPane().setBackground(Color.WHITE);
         setVisible(true);
     }
 

@@ -18,10 +18,17 @@ public class TotalCoinsDashboard extends JFrame implements CoinCountsObserver {
         setTitle("Total Coins Dashboard");
         setSize(300, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         totalCoinsLabel = new JLabel("Total Coins: 0");
+        totalCoinsLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
+        totalCoinsLabel.setForeground(new Color(50, 50, 150)); // Dark blue
+        totalCoinsLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
+        totalCoinsLabel.setAlignmentX(Component.CENTER_ALIGNMENT); // For BoxLayout
+
         add(totalCoinsLabel);
+
+        getContentPane().setBackground(Color.WHITE);
 
         setVisible(true);
     }
