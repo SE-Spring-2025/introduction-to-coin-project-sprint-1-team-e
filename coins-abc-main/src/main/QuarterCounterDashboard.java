@@ -1,90 +1,55 @@
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Color;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 
-public class QuarterCounterDashboard extends JFrame 
-    implements CoinCountsObserver {
-    private static final int FRAME_WIDTH = 400;
-    private static final int FRAME_HEIGHT = 350;
-    private static final int BORDER_PADDING = 10;
-    private static final int FONT_SIZE = 12;
-    private static final int LABEL_FONT_SIZE = 16;
-    
+/**
+ * A GUI dashboard that displays the count of quarters in a CoinCounts object.
+ * Implements the CoinCountsObserver interface to update the display when the
+ * coin count changes.
+ * 
+ * @author Team E
+ * @version 1.0
+ */
+public class QuarterCounterDashboard extends JFrame implements CoinCountsObserver {
     private JLabel quarterCountLabel;
-    private JTextArea quarterArtArea;
+    private QuarterArtPanel quarterArtPanel;
+    private static final int FONT_SIZE = 12;
 
+    /**
+     * Constructs a QuarterCounterDashboard with default settings.
+     * Initializes the JFrame and sets up the quarter count display.
+     */
     public QuarterCounterDashboard() {
         setTitle("Quarter Counter Dashboard");
-        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setSize(500, 400);
+        setMinimumSize(new Dimension(350, 350));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout(BORDER_PADDING, BORDER_PADDING));
-        
-        // Create the ASCII art text area
-        quarterArtArea = new JTextArea();
-        quarterArtArea.setEditable(false);
-        quarterArtArea.setFont(new Font("Monospaced", Font.PLAIN, FONT_SIZE));
-        quarterArtArea.setBackground(this.getBackground());
-        quarterArtArea.setText(
-            "                    _.-'~~`~~'-._\n"
-            + "                 .'`  B   E   R  `'.\n"
-            + "                / I               T \\\n"
-            + "              /`       .-'~\"-.       `\\\n"
-            + "             ; L      / `-    \\      Y ;\n"
-            + "            ;        />  `.  -.|        ;\n"
-            + "            |       /_     '-.__)       |\n"
-            + "            |        |-  _.' \\ |        |\n"
-            + "            ;        `~~;     \\\\        ;\n"
-            + "             ;  INGODWE /      \\\\)P    ;\n"
-            + "              \\  TRUST '.___.-'`\"     /\n"
-            + "               `\\                   /`\n"
-            + "                 '._   1 9 9 7   _.'\n"
-            + "                    `'-..,,,..-'`"
-        );
-        quarterArtArea.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        // Create the counter label with larger font
-        quarterCountLabel = new JLabel("Quarter Count: 0", 
-            SwingConstants.CENTER);
-        quarterCountLabel.setFont(new Font("SansSerif", Font.BOLD,
-            LABEL_FONT_SIZE));
-        quarterCountLabel.setForeground(new Color(50, 50, 150)); // deep blue
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+
+        quarterArtPanel = new QuarterArtPanel();
+        quarterArtPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(quarterArtPanel);
+
+        // Create the quarter count label
+        quarterCountLabel = new JLabel("Quarter Count: 0");
+        quarterCountLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
+        quarterCountLabel.setForeground(new Color(50, 50, 150)); // Dark blue
+        quarterCountLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
         quarterCountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        quarterCountLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
-        
-        // Create a panel to hold both components
-        JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
-        contentPanel.add(Box.createVerticalGlue());
-        contentPanel.add(quarterArtArea);
-        contentPanel.add(Box.createVerticalStrut(BORDER_PADDING));
-        contentPanel.add(quarterCountLabel);
-        contentPanel.add(Box.createVerticalGlue());
-        
-        // Add panel to frame with border padding
-        add(contentPanel, BorderLayout.CENTER);
-        
-        // Add empty border for padding
-        contentPanel.setBorder(BorderFactory.createEmptyBorder(
-            BORDER_PADDING, 
-            BORDER_PADDING, 
-            BORDER_PADDING, 
-            BORDER_PADDING));
-        
+
+        add(quarterCountLabel);
+
+        getContentPane().setBackground(Color.WHITE);
         setVisible(true);
     }
 
+    /**
+     * Updates the displayed quarter count based on the CoinCounts object.
+     * 
+     * @param coinCounts coinCounts the updated CoinCounts instance containing the
+     *                   quarter count
+     */
     @Override
     public void update(CoinCounts coinCounts) {
-        quarterCountLabel.setText("Quarter Count: " 
-            + coinCounts.getQuarterCount());
+        quarterCountLabel.setText("Quarter Count: " + coinCounts.getQuarterCount());
     }
 }
