@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Color;
 
 public class TotalCoinsDashboard extends JFrame 
     implements CoinCountsObserver {
@@ -55,7 +56,9 @@ public class TotalCoinsDashboard extends JFrame
             SwingConstants.CENTER);
         totalCoinsLabel.setFont(new Font("SansSerif", Font.BOLD,
             LABEL_FONT_SIZE));
+        totalCoinsLabel.setForeground(new Color(50, 50, 150)); // deep blue
         totalCoinsLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        totalCoinsLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
         
         // Create a panel to hold both components
         JPanel contentPanel = new JPanel();

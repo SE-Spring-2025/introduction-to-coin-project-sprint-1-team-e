@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Color;
 import java.awt.Font;
 
 public class QuarterCounterDashboard extends JFrame 
@@ -55,7 +56,9 @@ public class QuarterCounterDashboard extends JFrame
             SwingConstants.CENTER);
         quarterCountLabel.setFont(new Font("SansSerif", Font.BOLD,
             LABEL_FONT_SIZE));
+        quarterCountLabel.setForeground(new Color(50, 50, 150)); // deep blue
         quarterCountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quarterCountLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
         
         // Create a panel to hold both components
         JPanel contentPanel = new JPanel();
