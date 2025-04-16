@@ -33,4 +33,41 @@ public class Quarter extends Coin {
             "LIBERTY", "UNITED STATES OF AMERICA", "G_Washington", 
             "Eagle", "QUARTER DOLLAR", true, smelter, year);
     }
+
+    protected Coin smeltStep(Coin c) {
+        c.setSmelter(new DimeMetallurgy); //Definetely changing this
+        c.smelt();
+
+        return ;
+    }
+
+    protected Coin ImprintRidgedEdge(Coin c) {
+        c.
+
+        return ;
+    }
+
+    protected Coin ImprintFrontImage(Coin c) {
+        
+
+        return ;
+    }
+
+    protected Coin ImprintBackImage(Coin c) {
+        
+
+        return ;
+    }
+
+    protected Coin ImprintFrontMotto(Coin c) {
+        
+
+        return ;
+    }
+
+    protected Coin ImprintBackMotto(Coin c) {
+        
+
+        return ;
+    }
 }

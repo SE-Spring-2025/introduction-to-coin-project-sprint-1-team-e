@@ -36,4 +36,41 @@ public class Dime extends Coin {
             "Torch_Branches", "ONE DIME", true, 
             smelter, year);
     }
+
+    protected Coin smeltStep(Coin c) {
+        setSmelter(new CuproNickel()); //Definetely changing this
+        smelt();
+
+        return this;
+    }
+
+    protected Coin ImprintridgedEdge(Coin c) {
+        
+
+        return ;
+    }
+
+    protected Coin ImprintFrontImage(Coin c) {
+        c.frontImage = "F_Roosevelt";
+
+        return ;
+    }
+
+    protected Coin ImprintBackImage(Coin c) {
+        
+
+        return ;
+    }
+
+    protected Coin ImprintFrontMotto(Coin c) {
+        
+
+        return ;
+    }
+
+    protected Coin ImprintBackMotto(Coin c) {
+        
+
+        return ;
+    }
 }

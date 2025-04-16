@@ -37,6 +37,11 @@ public abstract class Coin {
     private int manufactureYear;
     private Metallurgy smelter;
 
+
+    private boolean flipped = false;
+    private boolean buffed = false;
+
+
     
     /**
      * Constructor for Coin class.
@@ -71,6 +76,41 @@ public abstract class Coin {
         this.smelter = smelter;
         smelt();
     }
+
+
+
+    public Coin manufacture(Coin c0) {
+        Coin c1 = smeltStep(c0);
+        Coin c2 = edge(c1);
+        Coin c3 = imprintFrontImage(c2);
+        Coin c4 = imprintFrontMotto(c3);
+        Coin c5 = flip(c4);
+        Coin c6 = imprintBackImage(c5);
+        Coin c7 = imprintBackMotto(c6);
+        Coin c8 = buff(c7);
+        return c8;
+    }
+
+    // Abstract methods to implement in each subclass
+    protected abstract Coin smeltStep(Coin c);
+    protected abstract Coin edge(Coin c);
+    protected abstract Coin imprintFrontImage(Coin c);
+    protected abstract Coin imprintFrontMotto(Coin c);
+    protected abstract Coin imprintBackImage(Coin c);
+    protected abstract Coin imprintBackMotto(Coin c);
+
+    protected Coin flip(Coin c) {
+        this.flipped = true;
+        return this;
+    }
+    
+    protected Coin buff(Coin c) {
+        this.buffed = true;
+        return this;
+    }
+
+
+
 
     /**
      * Uses the smelter to set the metallurgy.
