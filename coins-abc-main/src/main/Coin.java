@@ -77,9 +77,13 @@ public abstract class Coin {
         smelt();
     }
 
-
-
-    public Coin manufacture(Coin c0) {
+    /**
+     * Template method for manufacturing a coin. This method defines the sequence of steps
+     * and should not be overridden by subclasses.
+     * @param c0 the initial coin (blob)
+     * @return the fully manufactured coin
+     */
+    public final Coin manufacture(Coin c0) {
         Coin c1 = smeltStep(c0);
         Coin c2 = edge(c1);
         Coin c3 = imprintFrontImage(c2);
@@ -99,18 +103,24 @@ public abstract class Coin {
     protected abstract Coin imprintBackImage(Coin c);
     protected abstract Coin imprintBackMotto(Coin c);
 
+    /**
+     * Default implementation for flipping a coin. Sets flipped to true.
+     * @param c the coin to flip
+     * @return the flipped coin
+     */
     protected Coin flip(Coin c) {
-        this.flipped = true;
-        return this;
+        c.setFlipped(true);
+        return c;
     }
-    
+    /**
+     * Default implementation for buffing a coin. Sets buffed to true.
+     * @param c the coin to buff
+     * @return the buffed coin
+     */
     protected Coin buff(Coin c) {
-        this.buffed = true;
-        return this;
+        c.setBuffed(true);
+        return c;
     }
-
-
-
 
     /**
      * Uses the smelter to set the metallurgy.
@@ -324,6 +334,21 @@ public abstract class Coin {
     public void setSmelter(Metallurgy smelter) {
         this.smelter = smelter;
         smelt();
+    }
+
+    /**
+     * Sets the flipped state of the coin.
+     * @param flipped true if the coin has been flipped
+     */
+    public void setFlipped(boolean flipped) {
+        this.flipped = flipped;
+    }
+    /**
+     * Sets the buffed state of the coin.
+     * @param buffed true if the coin has been buffed
+     */
+    public void setBuffed(boolean buffed) {
+        this.buffed = buffed;
     }
 
     public static CoinCounts getCoinCounts() {
