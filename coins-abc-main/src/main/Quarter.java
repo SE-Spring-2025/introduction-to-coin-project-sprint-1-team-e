@@ -33,70 +33,36 @@ public class Quarter extends Coin {
             null, null, null, 
             null, null, true, smelter, year);
     }
-    /**
-     * Manufacture method for Quarter.
-     * @param c the coin to be manufactured
-     * @return the manufactured coin
-     */
+    
     @Override
-    public Coin manufacture(Coin c) {
-        c = smeltStep(c);
-        c = edge(c);
-        c = imprintFrontImage(c);
-        c = imprintFrontMotto(c);
-        c = flip(c);
-        c = imprintBackImage(c);
-        c = imprintBackMotto(c);
-        c = buff(c);
-        return c;
-    }
-    /**
-     * Smelt step for Quarter.
-     * @param c the coin to be smelted
-     */
     protected Coin smeltStep(Coin c) {
         c.setSmelter(new CuproNickel()); 
         c.smelt();
         return c;
     }
-    /**
-     * Edge step for Quarter.
-     * @param c the coin to be edged
-     */
+    @Override
     protected Coin edge(Coin c) {
         c.setRidgedEdge(true);
         return c;
     }
-    /**
-     * Imprint front image for Quarter.
-     * @param c the coin to be imprinted
-     */
+    @Override
     protected Coin imprintFrontImage(Coin c) {
         c.setFrontImage("G_Washington");
         return c;
     }
-    /**
-     * Imprint back image for Quarter.
-     * @param c the coin to be imprinted
-     */
+    @Override
     protected Coin imprintBackImage(Coin c) {
         c.setBackImage("Eagle");
         return c;
     }
-    /**
-     * Imprint front motto for Quarter.
-     * @param c the coin to be imprinted
-     */
+    @Override
     protected Coin imprintFrontMotto(Coin c) {
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        c.setYear(DEFAULT_YEAR);
+        c.setYear(c.getYear()); // Use the year already set in constructor
         return c;
     }
-    /**
-     * Imprint back motto for Quarter.
-     * @param c the coin to be imprinted
-     */
+    @Override
     protected Coin imprintBackMotto(Coin c) {
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");

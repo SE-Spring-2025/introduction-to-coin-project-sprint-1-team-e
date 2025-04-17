@@ -80,6 +80,7 @@ public class Demo {
         // Penny
         System.out.println("> Creating: Penny()");
         Penny penny = new Penny();
+        penny = (Penny) penny.manufacture(penny);
         coinCounter.addCoin(penny);
         System.out.println("  [Result] " + penny);
         printSeparator();
@@ -101,6 +102,7 @@ public class Demo {
         // Quarter
         System.out.println("> Creating: Quarter()");
         Quarter quarter = new Quarter();
+        quarter = (Quarter) quarter.manufacture(quarter);
         coinCounter.addCoin(quarter);
         System.out.println("  [Result] " + quarter);
         printSeparator();
