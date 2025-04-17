@@ -175,11 +175,47 @@ class MockMetallurgy implements Metallurgy {
 
 class MockCoin extends Coin {
     public MockCoin() {
-        super("MockCoin", 24.0, 
-              "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-              "LIBERTY", "UNITED STATES OF AMERICA", 
-              "Mock_Front_Image", "Mock_Back_Image", 
-              "Mock_Value_Description", true, new MockMetallurgy(), 2025);
+        super("MockCoin", 24.0, null, null, null, null, null, null, null, true, new MockMetallurgy(), 2025);
+    }
+
+    @Override
+    protected Coin smeltStep(Coin c) {
+        c.setMetallurgy("Mock_Metallurgy");
+        return c;
+    }
+
+    @Override
+    protected Coin edge(Coin c) {
+        c.setRidgedEdge(true);
+        return c;
+    }
+
+    @Override
+    protected Coin imprintFrontImage(Coin c) {
+        c.setFrontImage("Mock_Front_Image");
+        return c;
+    }
+
+    @Override
+    protected Coin imprintFrontMotto(Coin c) {
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        c.setYear(2025);
+        return c;
+    }
+
+    @Override
+    protected Coin imprintBackImage(Coin c) {
+        c.setBackImage("Mock_Back_Image");
+        return c;
+    }
+
+    @Override
+    protected Coin imprintBackMotto(Coin c) {
+        c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("Mock_Value_Description");
+        return c;
     }
 }
 
