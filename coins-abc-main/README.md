@@ -2,35 +2,33 @@
 # Dr. Nazia Sharmin
 # Appalachian State University
 
-# Coins Project - Group E - Sprint 4
-# Michele Carson, Andy Estrada, Jenna Mena, Carson Taylor
+# Coins Project - Group E - Sprint 5
+# Mitchel Carson, Andy Estrada, Jenna Mena, Carson Taylor
 
-# Sprint 4
+# Sprint 5
 ## Process Description
 
-1. Explore the CelsiusConverter codes.
-2. Create a CoinCounts class that is composed inside of the Coin class. 
-3. Add a "total coins" dashboard observer that watches the CoinCounts object.
-4. Add a "quarter counter" dashboard observe that watches the CoinCounts object.
-6. Write a Demo class that adds to its demonstration of our code. We should be able to choose different coin creations and see the dashboards change automatically.
+1. Write the manufacture() template method.
+2. Write the process step methods (some are abstract, some are not).
+3. Double check access (public, private, protected, final, etc.) to make sure that others who
+use our Coin class can not misuse our class.
+4. Update tests as appropriate.
+5. Write a Demo class that adds to its demonstration of our code. We should be able to
+choose different coin creations and see the dashboards change automatically.
 
-The Observer Design Pattern is a behavioral pattern that defines a one-to-many dependency between objects. When the state of one object (called the subject or observable) changes, all its dependents (observers) are notified and updated automatically. This pattern is a key part of implementing distributed event handling systems.
+The Template Design Pattern lets you define the outline of an algorithm in a base class and allow subclasses to fill in the details.
 
-### Observer Design Pattern
+### Template Design Pattern
 
-1. **Subject/Observable**: The object that maintains a list of its dependents (observers) and notifies them of state changes.
+1. **BaseAbstractTemplateClass**: The base abstract class that defines the methods to be implemented by each subclass. 
    
-2. **Observer**: An interface or abstract class defining the update method that gets called when the Subject's state changes.
-   
-3. **ConcreteSubject**: Implements the Subject interface, maintains state, and sends notifications to observers when state changes.
-   
-4. **ConcreteObserver**: Implements the Observer interface and defines how to respond to Subject updates.
+2. **Subclasses**: Subclasses override the abstract methods defined in the base class to define custom implementations
 
 ### Benefits:
 
-- **Loose coupling**: Subjects don't need to know anything about their observers beyond that they implement an interface.
-- **Support for broadcast communication**: One update in the Subject can propagate to all registered observers.
-- **Dynamic relationships**: Observers can be added or removed at runtime.
+- **Code Reuse**: Subclasses resuse the methods already defined in the main template class, avoiding code duplication.
+- **Improves Workflow**: The base class handles overall workflow, while subclasses only focus on the customizable parts.
+- **Constistent Algorithm Structure**: Ensures all subclasses follow the same processing steps
 
 ## Executing Terminal Commands via make (makefile)
 

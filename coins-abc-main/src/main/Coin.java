@@ -37,6 +37,11 @@ public abstract class Coin {
     private int manufactureYear;
     private Metallurgy smelter;
 
+
+    private boolean flipped = false;
+    private boolean buffed = false;
+
+
     
     /**
      * Constructor for Coin class.
@@ -71,6 +76,41 @@ public abstract class Coin {
         this.smelter = smelter;
         smelt();
     }
+
+
+
+    public Coin manufacture(Coin c0) {
+        Coin c1 = smeltStep(c0);
+        Coin c2 = edge(c1);
+        Coin c3 = imprintFrontImage(c2);
+        Coin c4 = imprintFrontMotto(c3);
+        Coin c5 = flip(c4);
+        Coin c6 = imprintBackImage(c5);
+        Coin c7 = imprintBackMotto(c6);
+        Coin c8 = buff(c7);
+        return c8;
+    }
+
+    // Abstract methods to implement in each subclass
+    protected abstract Coin smeltStep(Coin c);
+    protected abstract Coin edge(Coin c);
+    protected abstract Coin imprintFrontImage(Coin c);
+    protected abstract Coin imprintFrontMotto(Coin c);
+    protected abstract Coin imprintBackImage(Coin c);
+    protected abstract Coin imprintBackMotto(Coin c);
+
+    protected Coin flip(Coin c) {
+        this.flipped = true;
+        return this;
+    }
+    
+    protected Coin buff(Coin c) {
+        this.buffed = true;
+        return this;
+    }
+
+
+
 
     /**
      * Uses the smelter to set the metallurgy.
@@ -182,7 +222,101 @@ public abstract class Coin {
     public Metallurgy getSmelter() {
         return smelter;
     }
-    
+        /**
+     * Sets the familiar name of the coin.
+     * @param familiarName the new familiar name
+     */
+    public void setFamiliarName(String familiarName) {
+        this.familiarName = familiarName;
+    }
+
+    /**
+     * Sets the monetary value of the coin.
+     * @param value the new monetary value
+     */
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    /**
+     * Sets the front motto of the coin.
+     * @param frontMotto the new front motto
+     */
+    public void setFrontMotto(String frontMotto) {
+        this.frontMotto = frontMotto;
+    }
+
+    /**
+     * Sets the back motto of the coin.
+     * @param backMotto the new back motto
+     */
+    public void setBackMotto(String backMotto) {
+        this.backMotto = backMotto;
+    }
+
+    /**
+     * Sets the front label of the coin.
+     * @param frontLabel the new front label
+     */
+    public void setFrontLabel(String frontLabel) {
+        this.frontLabel = frontLabel;
+    }
+
+    /**
+     * Sets the back label of the coin.
+     * @param backLabel the new back label
+     */
+    public void setBackLabel(String backLabel) {
+        this.backLabel = backLabel;
+    }
+
+    /**
+     * Sets the front image of the coin.
+     * @param frontImage the new front image
+     */
+    public void setFrontImage(String frontImage) {
+        this.frontImage = frontImage;
+    }
+
+    /**
+     * Sets the back image of the coin.
+     * @param backImage the new back image
+     */
+    public void setBackImage(String backImage) {
+        this.backImage = backImage;
+    }
+
+    /**
+     * Sets the value description of the coin.
+     * @param valueDescription the new value description
+     */
+    public void setValueDescription(String valueDescription) {
+        this.valueDescription = valueDescription;
+    }
+
+    /**
+     * Sets whether the coin has a ridged edge.
+     * @param ridgedEdge true if the coin has a ridged edge, false otherwise
+     */
+    public void setRidgedEdge(boolean ridgedEdge) {
+        this.ridgedEdge = ridgedEdge;
+    }
+
+    /**
+     * Sets the metallurgy of the coin.
+     * @param metallurgy the new metallurgy
+     */
+    public void setMetallurgy(String metallurgy) {
+        this.metallurgy = metallurgy;
+    }
+
+    /**
+     * Sets the manufacture year of the coin.
+     * @param manufactureYear the new manufacture year
+     */
+    public void setYear(int manufactureYear) {
+        this.manufactureYear = manufactureYear;
+    }
     /**
      * Sets the metallurgy delegate of the coin.
      * @param smelter the new metallurgy delegate
