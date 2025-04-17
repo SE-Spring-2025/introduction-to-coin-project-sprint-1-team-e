@@ -14,6 +14,7 @@ public class CoinTest {
     @Test
     public void testPenny() {
         Penny p = new Penny();
+        p = (Penny) p.manufacture(p);
         assertEquals(0.01, p.getValue());
         assertEquals("Penny", p.getFamiliarName());
         assertEquals("IN GOD WE TRUST", p.getFrontMotto());
@@ -65,6 +66,7 @@ public class CoinTest {
     @Test
     public void testQuarter() {
         Quarter q = new Quarter(1999);
+        q = (Quarter) q.manufacture(q);
         assertEquals(0.25, q.getValue());
         assertEquals("Quarter", q.getFamiliarName());
         assertEquals("IN GOD WE TRUST", q.getFrontMotto());
