@@ -8,69 +8,77 @@ public class Dime extends Coin {
      * Default constructor for Dime.
      */
     public Dime() {
-        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, 
+        super("Dime", DIME_VALUE,
             new CuproNickel(), DEFAULT_YEAR);
     }
     
-    /**
-     * Constructor for Dime with specific year.
-     * @param year the year of manufacture
-     */
-    public Dime(int year) {
-        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, 
-            new CuproNickel(), year);
-    }
+    // /**
+    //  * Constructor for Dime with specific year.
+    //  * @param year the year of manufacture
+    //  */
+    // public Dime(int year) {
+    //     super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+    //         "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
+    //         "Torch_Branches", "ONE DIME", true, 
+    //         new CuproNickel(), year);
+    // }
     
-    /**
-     * Constructor for Dime with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
-     */
-    public Dime(int year, Metallurgy smelter) {
-        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, 
-            smelter, year);
-    }
+    // /**
+    //  * Constructor for Dime with specific year and metallurgy.
+    //  * @param year the year of manufacture
+    //  * @param smelter the metallurgy strategy
+    //  */
+    // public Dime(int year, Metallurgy smelter) {
+    //     super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
+    //         "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
+    //         "Torch_Branches", "ONE DIME", true, 
+    //         smelter, year);
+    // }
 
+    @Override
     protected Coin smeltStep(Coin c) {
-        setSmelter(new CuproNickel()); //Definetely changing this
+        setSmelter(new CuproNickel());
         smelt();
 
         return this;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
-        
+    //Note to self: Is this method needed?
+    @Override
+    protected Coin ImprintRidgedEdge(Coin c) {
+        this.setRidgedEdge(false);
 
-        return ;
+        return this;
     }
 
+    @Override
     protected Coin ImprintFrontImage(Coin c) {
-        c.frontImage = "F_Roosevelt";
+        this.setFrontImage("F_Roosevelt");
 
-        return ;
+        return this;
     }
 
+    @Override
     protected Coin ImprintBackImage(Coin c) {
-        
+        this.setBackImage("Torch_Branches");
 
-        return ;
+        return this;
     }
 
+    @Override
     protected Coin ImprintFrontMotto(Coin c) {
-        
+        this.setFrontMotto("In God We Trust");
+        this.setFrontLabel("Liberty");
 
-        return ;
+        return this;
     }
 
+    @Override
     protected Coin ImprintBackMotto(Coin c) {
-        
+        this.setBackMotto("E Pluribus Unum");
+        this.setBackLabel("UNITED STATES OF AMERICA");
+        this.setValueDescription("ONE DIME");
 
-        return ;
+        return this;
     }
 }
