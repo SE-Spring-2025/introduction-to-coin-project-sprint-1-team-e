@@ -8,10 +8,7 @@ public class HalfDollar extends Coin {
      * Default constructor for HalfDollar.
      */
     public HalfDollar() {
-        super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
-            "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
-            "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            new CuproNickel(), DEFAULT_YEAR);
+        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, DEFAULT_YEAR);
     }
     
     /**
@@ -19,10 +16,7 @@ public class HalfDollar extends Coin {
      * @param year the year of manufacture
      */
     public HalfDollar(int year) {
-        super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
-            "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
-            "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            new CuproNickel(), year);
+        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, year);
     }
     
     /**
@@ -38,39 +32,39 @@ public class HalfDollar extends Coin {
     }
 
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new DimeMetallurgy); //Definetely changing this
-        c.smelt();
+        setSmelter(new CuproNickel());
+        smelt();
 
-        return ;
+        return this;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
+    protected Coin ImprintRidgedEdge(Coin c) {
         
-
-        return ;
+        c.setRidgedEdge(true); // HalfDollar has ridged edges
+        return c;
     }
 
     protected Coin ImprintFrontImage(Coin c) {
         
-
-        return ;
+        c.setFrontMotto("J_Kennedy");
+        return c;
     }
 
     protected Coin ImprintBackImage(Coin c) {
         
-
-        return ;
+        c.setFrontMotto("Presidential_Seal");
+        return c;
     }
 
     protected Coin ImprintFrontMotto(Coin c) {
         
-
-        return ;
+        c.setFrontMotto("IN GOD WE TRUST");
+        return c;
     }
 
     protected Coin ImprintBackMotto(Coin c) {
         
-
-        return ;
+        c.setBackMotto("E PLURIBUS UNUM");
+        return c;
     }
 }

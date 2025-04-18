@@ -8,10 +8,8 @@ public class Nickel extends Coin {
      * Default constructor for Nickel.
      */
     public Nickel() {
-        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), 
-            DEFAULT_YEAR);
+        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, DEFAULT_YEAR);
+  
     }
     
     /**
@@ -19,9 +17,7 @@ public class Nickel extends Coin {
      * @param year the year of manufacture
      */
     public Nickel(int year) {
-        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), year);
+        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, year);
     }
     
     /**
@@ -36,39 +32,38 @@ public class Nickel extends Coin {
     }
 
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new DimeMetallurgy); //Definetely changing this
-        c.smelt();
+        setSmelter(new CuproNickel());
+        smelt();
 
-        return ;
+        return this;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
+    protected Coin ImprintRidgedEdge(Coin c) {
         
-
-        return ;
+        c.setRidgedEdge(false); // Nickels have smooth edges
+        return c;
     }
 
     protected Coin ImprintFrontImage(Coin c) {
         
-
-        return ;
+        c.setFrontImage("T_Jefferson");
+        return c;
     }
 
     protected Coin ImprintBackImage(Coin c) {
-        
-
-        return ;
+        c.setBackImage("Jefferson_Memorial");
+        return c;
     }
 
     protected Coin ImprintFrontMotto(Coin c) {
         
-
-        return ;
+        c.setFrontMotto("IN GOD WE TRUST");
+        return c;
     }
 
     protected Coin ImprintBackMotto(Coin c) {
         
-
-        return ;
+        c.setBackMotto("E PLURIBUS UNUM");
+        return c;
     }
 }
