@@ -19,13 +19,6 @@ public class Nickel extends Coin {
     public Nickel(int year) {
         super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, year);
     }
-    
-    /**
-     * Constructor for Nickel with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
-     */
-  
 
     protected Coin smeltStep(Coin c) {
         setSmelter(new CuproNickel());
