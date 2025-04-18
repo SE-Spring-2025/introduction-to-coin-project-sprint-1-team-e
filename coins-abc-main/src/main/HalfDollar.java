@@ -24,12 +24,6 @@ public class HalfDollar extends Coin {
      * @param year the year of manufacture
      * @param smelter the metallurgy strategy
      */
-    public HalfDollar(int year, Metallurgy smelter) {
-        super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
-            "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
-            "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            smelter, year);
-    }
 
     protected Coin smeltStep(Coin c) {
         setSmelter(new CuproNickel());
