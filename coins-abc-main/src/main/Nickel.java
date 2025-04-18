@@ -25,11 +25,7 @@ public class Nickel extends Coin {
      * @param year the year of manufacture
      * @param smelter the metallurgy strategy
      */
-    public Nickel(int year, Metallurgy smelter) {
-        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, smelter, year);
-    }
+  
 
     protected Coin smeltStep(Coin c) {
         setSmelter(new CuproNickel());
