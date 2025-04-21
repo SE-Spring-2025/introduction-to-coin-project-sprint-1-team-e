@@ -142,7 +142,7 @@ public class CoinTest {
     @Test
     public void testMetallurgyStrategy() {
         // Test changing metallurgy using the strategy pattern
-        Penny penny = new Penny(2023);
+        Penny penny = new Penny();
         assertEquals("Copper", penny.getMetallurgy());
         
         // Change metallurgy to Cupro-Nickel
@@ -150,7 +150,7 @@ public class CoinTest {
         assertEquals("Cupro-Nickel", penny.getMetallurgy());
         
         // Test construction with a specific metallurgy
-        Penny specialPenny = new Penny(2023, new CuproNickel());
+        Penny specialPenny = new Penny();
         assertEquals("Cupro-Nickel", specialPenny.getMetallurgy());
         
         // Test that mockCoin uses MockMetallurgy
@@ -185,19 +185,19 @@ class MockCoin extends Coin {
     }
 
     @Override
-    protected Coin edge(Coin c) {
+    protected Coin ImprintRidgedEdge(Coin c) {
         c.setRidgedEdge(true);
         return c;
     }
 
     @Override
-    protected Coin imprintFrontImage(Coin c) {
+    protected Coin ImprintFrontImage(Coin c) {
         c.setFrontImage("Mock_Front_Image");
         return c;
     }
 
     @Override
-    protected Coin imprintFrontMotto(Coin c) {
+    protected Coin ImprintFrontMotto(Coin c) {
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
         c.setYear(2025);
@@ -205,13 +205,13 @@ class MockCoin extends Coin {
     }
 
     @Override
-    protected Coin imprintBackImage(Coin c) {
+    protected Coin ImprintBackImage(Coin c) {
         c.setBackImage("Mock_Back_Image");
         return c;
     }
 
     @Override
-    protected Coin imprintBackMotto(Coin c) {
+    protected Coin ImprintBackMotto(Coin c) {
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
         c.setValueDescription("Mock_Value_Description");

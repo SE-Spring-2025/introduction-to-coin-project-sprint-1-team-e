@@ -18,15 +18,6 @@ public class Penny extends Coin {
     public Penny(int year) {
         super("Penny", PENNY_VALUE, null, null, null, null, null, null, null, false, new Copper(), year);
     }
-    
-    /**
-     * Constructor for Penny with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
-     */
-    public Penny(int year, Metallurgy smelter) {
-        super("Penny", PENNY_VALUE, null, null, null, null, null, null, null, false, smelter, year);
-    }
 
     @Override
     protected Coin smeltStep(Coin c) {
@@ -55,12 +46,15 @@ public class Penny extends Coin {
     protected Coin ImprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("Liberty");
+        c.setYear(DEFAULT_YEAR);
         return c;
     }
 
     protected Coin ImprintBackMotto(Coin c) {
         
         c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
         return c;
     }
 }

@@ -47,13 +47,16 @@ public class Quarter extends Coin {
 
     protected Coin ImprintFrontMotto(Coin c) {
         
-        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontMotto("IN GOD WE TRUST");   c.setFrontLabel("Liberty");
+        c.setFrontLabel("Liberty");
+        c.setYear(DEFAULT_YEAR);
         return c;
     }
 
     protected Coin ImprintBackMotto(Coin c) {
         
         c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
         return c;
     }
 }
