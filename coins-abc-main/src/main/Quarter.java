@@ -10,7 +10,7 @@ public class Quarter extends Coin {
     public Quarter() {
         super("Quarter", QUARTER_VALUE, null, null, 
             null, null, null, 
-            null, null, true, new CuproNickel(), DEFAULT_YEAR);
+            null, null, true, null, DEFAULT_YEAR);
     }
     
     /**
@@ -20,7 +20,7 @@ public class Quarter extends Coin {
     public Quarter(int year) {
         super("Quarter", QUARTER_VALUE, null, null, 
             null, null, null, 
-            null, null, true, new CuproNickel(), year);
+            null, null, true, null, year);
     }
     @Override
     protected Coin smeltStep(Coin c) {
@@ -47,7 +47,7 @@ public class Quarter extends Coin {
 
     protected Coin ImprintFrontMotto(Coin c) {
         
-        c.setFrontMotto("IN GOD WE TRUST");   c.setFrontLabel("Liberty");
+        c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("Liberty");
         c.setYear(DEFAULT_YEAR);
         return c;

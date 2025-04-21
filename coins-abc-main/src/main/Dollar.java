@@ -20,7 +20,7 @@ public class Dollar extends Coin {
     public Dollar(int year) {
         super("Dollar", DOLLAR_VALUE, null, null, 
             null, null, null, 
-            null, null, false, new CuproNickel(), year);
+            null, null, false, null, year);
     }
 
     protected Coin smeltStep(Coin c) {

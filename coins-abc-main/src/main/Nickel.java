@@ -8,8 +8,7 @@ public class Nickel extends Coin {
      * Default constructor for Nickel.
      */
     public Nickel() {
-        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, DEFAULT_YEAR);
-  
+        super("Nickel", NICKEL_VALUE, null, null, null, null, null, null, null, false, null, DEFAULT_YEAR);
     }
     
     /**
@@ -17,7 +16,7 @@ public class Nickel extends Coin {
      * @param year the year of manufacture
      */
     public Nickel(int year) {
-        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, year);
+        super("Nickel", NICKEL_VALUE, null, null, null, null, null, null, null, false, null, year);
     }
 
     protected Coin smeltStep(Coin c) {

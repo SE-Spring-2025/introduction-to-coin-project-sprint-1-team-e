@@ -5,6 +5,7 @@ public class QuarterTest {
     @Test
     public void testConstructor() {
         Quarter q = new Quarter(2000);
+        q = (Quarter) q.manufacture(q);
         assertEquals(0.25, q.getValue());
         assertEquals("Quarter", q.getFamiliarName());
         assertEquals("IN GOD WE TRUST", q.getFrontMotto());
