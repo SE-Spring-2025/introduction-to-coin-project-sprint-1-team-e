@@ -35,37 +35,32 @@ public class Penny extends Coin {
         return c;
     }
 
-    @Override
-    protected Coin edge(Coin c) {
-        c.setRidgedEdge(false); // Pennies have smooth edges
+    protected Coin ImprintRidgedEdge(Coin c) {
+        
+        c.setRidgedEdge(false); // Nickels have smooth edges
         return c;
     }
 
-    @Override
-    protected Coin imprintFrontImage(Coin c) {
+    protected Coin ImprintFrontImage(Coin c) {
+        
         c.setFrontImage("A_Lincoln");
         return c;
     }
 
-    @Override
-    protected Coin imprintBackImage(Coin c) {
+    protected Coin ImprintBackImage(Coin c) {
         c.setBackImage("Lincoln_Memorial");
         return c;
     }
 
-    @Override
-    protected Coin imprintFrontMotto(Coin c) {
+    protected Coin ImprintFrontMotto(Coin c) {
+        
         c.setFrontMotto("IN GOD WE TRUST");
-        c.setFrontLabel("LIBERTY");
-        c.setYear(c.getYear()); // Use the year already set in constructor
         return c;
     }
 
-    @Override
-    protected Coin imprintBackMotto(Coin c) {
+    protected Coin ImprintBackMotto(Coin c) {
+        
         c.setBackMotto("E PLURIBUS UNUM");
-        c.setBackLabel("UNITED STATES OF AMERICA");
-        c.setValueDescription("ONE CENT");
         return c;
     }
 }
