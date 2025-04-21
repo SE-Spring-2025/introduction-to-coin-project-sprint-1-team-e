@@ -46,8 +46,13 @@ public class Nickel extends Coin {
     protected Coin ImprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
-        c.setFrontLabel("Liberty");
-        c.setYear(DEFAULT_YEAR);
+        c.setFrontLabel("LIBERTY");
+        if(c.getYear() != 2025){
+            c.setYear(c.getYear());
+        }
+        else{
+            c.setYear(DEFAULT_YEAR);
+        }
         return c;
     }
 
@@ -55,6 +60,7 @@ public class Nickel extends Coin {
         
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("FIVE CENTS");
         return c;
     }
 }

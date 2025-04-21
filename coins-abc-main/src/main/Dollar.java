@@ -49,15 +49,21 @@ public class Dollar extends Coin {
     }
 
     protected Coin ImprintFrontMotto(Coin c) {
-        c.setFrontMotto("In GOD WE TRUST");
-        c.setFrontLabel("Liberty");
-        c.setYear(DEFAULT_YEAR);
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        if(c.getYear() != 2025){
+            c.setYear(c.getYear());
+        }
+        else{
+            c.setYear(DEFAULT_YEAR);
+        }
         return c;
     }
 
     protected Coin ImprintBackMotto(Coin c) {
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("ONE DOLLAR");
         return c;
     }
 }

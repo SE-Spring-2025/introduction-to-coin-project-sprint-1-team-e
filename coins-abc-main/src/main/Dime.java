@@ -33,7 +33,7 @@ public class Dime extends Coin {
     }
 
     protected Coin ImprintRidgedEdge(Coin c) {
-        c.setRidgedEdge(false);
+        c.setRidgedEdge(true);
 
         return c;
     }
@@ -52,14 +52,20 @@ public class Dime extends Coin {
 
     protected Coin ImprintFrontMotto(Coin c) {
         c.setFrontMotto("IN GOD WE TRUST");
-        c.setFrontLabel("Liberty");
-        c.setYear(DEFAULT_YEAR);
+        c.setFrontLabel("LIBERTY");
+        if(c.getYear() != 2025){
+            c.setYear(c.getYear());
+        }
+        else{
+            c.setYear(DEFAULT_YEAR);
+        }
         return c;
     }
 
     protected Coin ImprintBackMotto(Coin c) {
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("ONE DIME");
         return c;
     }
 }

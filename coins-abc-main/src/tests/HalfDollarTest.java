@@ -5,6 +5,7 @@ public class HalfDollarTest {
     @Test
     public void testConstructor() {
         HalfDollar h = new HalfDollar(2025);
+        h =(HalfDollar)h.manufacture(h);
         assertEquals(0.50, h.getValue());
         assertEquals("HalfDollar", h.getFamiliarName());
         assertEquals("IN GOD WE TRUST", h.getFrontMotto());

@@ -74,7 +74,6 @@ public abstract class Coin {
         this.valueDescription = valueDescription;
         this.ridgedEdge = ridgedEdge;
         this.smelter = smelter;
-        smelt();
     }
 
     /**

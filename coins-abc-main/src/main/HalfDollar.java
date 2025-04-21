@@ -40,21 +40,26 @@ public class HalfDollar extends Coin {
 
     protected Coin ImprintFrontImage(Coin c) {
         
-        c.setFrontMotto("J_Kennedy");
+        c.setFrontImage("J_Kennedy");
         return c;
     }
 
     protected Coin ImprintBackImage(Coin c) {
         
-        c.setFrontMotto("Presidential_Seal");
+        c.setBackImage("Presidential_Seal");
         return c;
     }
 
     protected Coin ImprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
-        c.setFrontLabel("Liberty");
-        c.setYear(DEFAULT_YEAR);
+        c.setFrontLabel("LIBERTY");
+        if(c.getYear() != 2025){
+            c.setYear(c.getYear());
+        }
+        else{
+            c.setYear(DEFAULT_YEAR);
+        }
         return c;
     }
 
@@ -62,6 +67,7 @@ public class HalfDollar extends Coin {
         
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("HALF DOLLAR");
         return c;
     }
 }

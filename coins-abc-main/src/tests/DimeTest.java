@@ -5,6 +5,7 @@ public class DimeTest {
     @Test
     public void testConstructor() {
         Dime d = new Dime(2025);
+        d =(Dime)d.manufacture(d);
         assertEquals(0.10, d.getValue());
         assertEquals("Dime", d.getFamiliarName());
         assertEquals("IN GOD WE TRUST", d.getFrontMotto());

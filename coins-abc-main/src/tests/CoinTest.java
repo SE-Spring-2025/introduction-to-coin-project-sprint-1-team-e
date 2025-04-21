@@ -150,18 +150,20 @@ public class CoinTest {
     public void testMetallurgyStrategy() {
         // Test changing metallurgy using the strategy pattern
         Penny penny = new Penny();
+        penny = (Penny) penny.manufacture(penny);
+
+
         assertEquals("Copper", penny.getMetallurgy());
         
-        // Change metallurgy to Cupro-Nickel
-        penny.setSmelter(new CuproNickel());
-        assertEquals("Cupro-Nickel", penny.getMetallurgy());
-        
-        // Test construction with a specific metallurgy
         Penny specialPenny = new Penny();
+        specialPenny = (Penny) specialPenny.manufacture(specialPenny);
+        specialPenny.setSmelter(new CuproNickel());
+
         assertEquals("Cupro-Nickel", specialPenny.getMetallurgy());
         
         // Test that mockCoin uses MockMetallurgy
         MockCoin mockCoin = new MockCoin();
+        mockCoin = (MockCoin) mockCoin.manufacture(mockCoin);
         assertEquals("Mock_Metallurgy", mockCoin.getMetallurgy());
         
         // Change mockCoin's metallurgy
