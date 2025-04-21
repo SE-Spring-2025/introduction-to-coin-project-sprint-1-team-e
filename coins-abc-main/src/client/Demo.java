@@ -88,6 +88,7 @@ public class Demo {
         // Nickel
         System.out.println("> Creating: Nickel()");
         Nickel nickel = new Nickel();
+        nickel = (Nickel) nickel.manufacture(nickel);
         coinCounter.addCoin(nickel);
         System.out.println("  [Result] " + nickel);
         printSeparator();
@@ -95,6 +96,7 @@ public class Demo {
         // Dime
         System.out.println("> Creating: Dime()");
         Dime dime = new Dime();
+        dime = (Dime) dime.manufacture(dime);
         coinCounter.addCoin(dime);
         System.out.println("  [Result] " + dime);
         printSeparator();
@@ -110,6 +112,7 @@ public class Demo {
         // HalfDollar
         System.out.println("> Creating: HalfDollar()");
         HalfDollar halfDollar = new HalfDollar();
+        halfDollar = (HalfDollar) halfDollar.manufacture(halfDollar);
         coinCounter.addCoin(halfDollar);
         System.out.println("  [Result] " + halfDollar);
         printSeparator();
@@ -117,6 +120,7 @@ public class Demo {
         // Dollar
         System.out.println("> Creating: Dollar()");
         Dollar dollar = new Dollar();
+        dollar = (Dollar) dollar.manufacture(dollar);
         coinCounter.addCoin(dollar);
         System.out.println("  [Result] " + dollar);
         printSeparator();
@@ -237,6 +241,7 @@ public class Demo {
                 return;
         }
         
+        c = c.manufacture(c);
         // Add the created coin to the counter to notify observers
         coinCounter.addCoin(c);
         
