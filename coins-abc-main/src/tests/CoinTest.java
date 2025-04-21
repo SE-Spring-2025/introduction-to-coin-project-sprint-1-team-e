@@ -32,6 +32,7 @@ public class CoinTest {
     @Test
     public void testNickel() {
         Nickel n = new Nickel();
+        n = (Nickel) n.manufacture(n);
         assertEquals(0.05, n.getValue());
         assertEquals("Nickel", n.getFamiliarName());
         assertEquals("IN GOD WE TRUST", n.getFrontMotto());
@@ -49,6 +50,7 @@ public class CoinTest {
     @Test
     public void testDime() {
         Dime d = new Dime();
+        d = (Dime) d.manufacture(d);
         assertEquals(0.10, d.getValue());
         assertEquals("Dime", d.getFamiliarName());
         assertEquals("IN GOD WE TRUST", d.getFrontMotto());
@@ -67,6 +69,7 @@ public class CoinTest {
     public void testQuarter() {
         Quarter q = new Quarter(1999);
         q = (Quarter) q.manufacture(q);
+        q = (Quarter) q.manufacture(q);
         assertEquals(0.25, q.getValue());
         assertEquals("Quarter", q.getFamiliarName());
         assertEquals("IN GOD WE TRUST", q.getFrontMotto());
@@ -84,6 +87,7 @@ public class CoinTest {
     @Test
     public void testHalfDollar() {
         HalfDollar h = new HalfDollar();
+        h = (HalfDollar) h.manufacture(h);
         assertEquals(0.50, h.getValue());
         assertEquals("HalfDollar", h.getFamiliarName());
         assertEquals("IN GOD WE TRUST", h.getFrontMotto());
@@ -101,6 +105,7 @@ public class CoinTest {
     @Test
     public void testDollar() {
         Dollar d = new Dollar();
+        d = (Dollar) d.manufacture(d);
         assertEquals(1.00, d.getValue());
         assertEquals("Dollar", d.getFamiliarName());
         assertEquals("IN GOD WE TRUST", d.getFrontMotto());
@@ -118,6 +123,7 @@ public class CoinTest {
     @Test
     public void testToString() {
         HalfDollar h = new HalfDollar(1999);
+        h = (HalfDollar) h.manufacture(h);
         String expected = "[HalfDollar,0.50,1999,'IN GOD WE TRUST','E PLURIBUS UNUM','J_Kennedy','Presidential_Seal','LIBERTY','UNITED STATES OF AMERICA','HALF DOLLAR',ridges,'Cupro-Nickel']";
         assertEquals(expected, h.toString());
     }
@@ -125,6 +131,7 @@ public class CoinTest {
     @Test
     public void testMockCoinGetters() {
         Coin testCoin = new MockCoin();
+        testCoin = (MockCoin) testCoin.manufacture(testCoin);
         assertEquals("MockCoin", testCoin.getFamiliarName());
         assertEquals(24, testCoin.getValue());
         assertEquals("IN GOD WE TRUST", testCoin.getFrontMotto());
