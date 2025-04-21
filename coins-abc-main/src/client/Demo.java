@@ -137,7 +137,9 @@ public class Demo {
         System.out.println("> Standard Penny: " + standardPenny);
         
         // Create a penny with cupro-nickel metallurgy
-        Penny specialPenny = new Penny(2023, new CuproNickel());
+        Penny specialPenny = new Penny(2023);
+        specialPenny.setSmelter(new CuproNickel());
+        specialPenny.smelt();
         coinCounter.addCoin(specialPenny);
         System.out.println("> Special Penny with Cupro-Nickel: " + specialPenny);
         
@@ -224,7 +226,9 @@ public class Demo {
                 break;
             case 'S':
                 System.out.println("> Creating: Special Penny with Cupro-Nickel...");
-                c = new Penny(curYear, new CuproNickel());
+                c = new Penny(curYear);
+                c.setSmelter(new CuproNickel());
+                c.smelt();
                 break;
             case 'X':
                 return;
