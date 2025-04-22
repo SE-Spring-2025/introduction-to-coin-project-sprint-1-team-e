@@ -26,24 +26,24 @@ public class Penny extends Coin {
         return c;
     }
 
-    protected Coin ImprintRidgedEdge(Coin c) {
+    protected Coin imprintRidgedEdge(Coin c) {
         
         c.setRidgedEdge(false);
         return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
+    protected Coin imprintFrontImage(Coin c) {
         
         c.setFrontImage("A_Lincoln");
         return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
+    protected Coin imprintBackImage(Coin c) {
         c.setBackImage("Lincoln_Memorial");
         return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
+    protected Coin imprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
@@ -56,7 +56,7 @@ public class Penny extends Coin {
         return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");

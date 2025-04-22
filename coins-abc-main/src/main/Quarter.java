@@ -28,24 +28,24 @@ public class Quarter extends Coin {
         c.smelt();
         return c;
     }
-    protected Coin ImprintRidgedEdge(Coin c) {
+    protected Coin imprintRidgedEdge(Coin c) {
         
         c.setRidgedEdge(true);
         return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
+    protected Coin imprintFrontImage(Coin c) {
         
         c.setFrontImage("G_Washington");
         return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
+    protected Coin imprintBackImage(Coin c) {
         c.setBackImage("Eagle");
         return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
+    protected Coin imprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
@@ -58,7 +58,7 @@ public class Quarter extends Coin {
         return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");

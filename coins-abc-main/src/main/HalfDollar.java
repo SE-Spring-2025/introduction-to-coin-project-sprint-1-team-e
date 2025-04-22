@@ -8,7 +8,9 @@ public class HalfDollar extends Coin {
      * Default constructor for HalfDollar.
      */
     public HalfDollar() {
-        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, DEFAULT_YEAR);
+        super("HalfDollar", HALFDOLLAR_VALUE, null, 
+            null, null, null, null, 
+            null, null, false, null, DEFAULT_YEAR);
     }
     
     /**
@@ -16,15 +18,16 @@ public class HalfDollar extends Coin {
      * @param year the year of manufacture
      */
     public HalfDollar(int year) {
-        super("HalfDollar", HALFDOLLAR_VALUE, null, null, null, null, null, null, null, false, null, year);
+        super("HalfDollar", HALFDOLLAR_VALUE, null,
+            null, null, null, null,
+            null, null, false, null, year);
     }
     
     /**
-     * Constructor for HalfDollar with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
      */
-
     protected Coin smeltStep(Coin c) {
         setSmelter(new CuproNickel());
         smelt();
@@ -32,25 +35,45 @@ public class HalfDollar extends Coin {
         return this;
     }
 
-    protected Coin ImprintRidgedEdge(Coin c) {
+    /**
+     * Method to imprint the ridged edge on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintRidgedEdge(Coin c) {
         
         c.setRidgedEdge(true); // HalfDollar has ridged edges
         return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
+    /**
+     * Method to imprint the front image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontImage(Coin c) {
         
         c.setFrontImage("J_Kennedy");
         return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
+    /**
+     * Method to imprint the back image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintBackImage(Coin c) {
         
         c.setBackImage("Presidential_Seal");
         return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
+    /**
+     * Method to imprint the front motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
@@ -63,7 +86,7 @@ public class HalfDollar extends Coin {
         return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");

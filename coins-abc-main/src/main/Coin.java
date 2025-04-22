@@ -77,30 +77,31 @@ public abstract class Coin {
     }
 
     /**
-     * Template method for manufacturing a coin. This method defines the sequence of steps
+     * Template method for manufacturing a coin. 
+     * This method defines the sequence of steps
      * and should not be overridden by subclasses.
      * @param c0 the initial coin (blob)
      * @return the fully manufactured coin
      */
     public final Coin manufacture(Coin c0) {
         Coin c1 = smeltStep(c0);
-        Coin c2 = ImprintRidgedEdge(c1);
-        Coin c3 = ImprintFrontImage(c2);
-        Coin c4 = ImprintFrontMotto(c3);
+        Coin c2 = imprintRidgedEdge(c1);
+        Coin c3 = imprintFrontImage(c2);
+        Coin c4 = imprintFrontMotto(c3);
         Coin c5 = flip(c4);
-        Coin c6 = ImprintBackImage(c5);
-        Coin c7 = ImprintBackMotto(c6);
+        Coin c6 = imprintBackImage(c5);
+        Coin c7 = imprintBackMotto(c6);
         Coin c8 = buff(c7);
         return c8;
     }
 
     // Abstract methods to implement in each subclass
     protected abstract Coin smeltStep(Coin c);
-    protected abstract Coin ImprintRidgedEdge(Coin c);
-    protected abstract Coin ImprintFrontImage(Coin c);
-    protected abstract Coin ImprintFrontMotto(Coin c);
-    protected abstract Coin ImprintBackImage(Coin c);
-    protected abstract Coin ImprintBackMotto(Coin c);
+    protected abstract Coin imprintRidgedEdge(Coin c);
+    protected abstract Coin imprintFrontImage(Coin c);
+    protected abstract Coin imprintFrontMotto(Coin c);
+    protected abstract Coin imprintBackImage(Coin c);
+    protected abstract Coin imprintBackMotto(Coin c);
 
     /**
      * Default implementation for flipping a coin. Sets flipped to true.

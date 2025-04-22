@@ -9,9 +9,9 @@ public class Dime extends Coin {
      */
     public Dime() {
         super("Dime", DIME_VALUE, null, null, 
-        null, null, null, 
-        null, null, false, 
-        null, DEFAULT_YEAR);
+            null, null, null, 
+            null, null, false, 
+            null, DEFAULT_YEAR);
     }
     
     /**
@@ -32,37 +32,37 @@ public class Dime extends Coin {
         return c;
     }
 
-    protected Coin ImprintRidgedEdge(Coin c) {
+    protected Coin imprintRidgedEdge(Coin c) {
         c.setRidgedEdge(true);
 
         return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
+    protected Coin imprintFrontImage(Coin c) {
         c.setFrontImage("F_Roosevelt");
 
         return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
+    protected Coin imprintBackImage(Coin c) {
         c.setBackImage("Torch_Branches");
 
         return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
+    protected Coin imprintFrontMotto(Coin c) {
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        if(c.getYear() != 2025){
+        if (c.getYear() != 2025) {
             c.setYear(c.getYear());
         }
-        else{
+        else {
             c.setYear(DEFAULT_YEAR);
         }
         return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
         c.setValueDescription("ONE DIME");
