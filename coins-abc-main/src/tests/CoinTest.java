@@ -194,19 +194,19 @@ class MockCoin extends Coin {
     }
 
     @Override
-    protected Coin ImprintRidgedEdge(Coin c) {
+    protected Coin imprintRidgedEdge(Coin c) {
         c.setRidgedEdge(true);
         return c;
     }
 
     @Override
-    protected Coin ImprintFrontImage(Coin c) {
+    protected Coin imprintFrontImage(Coin c) {
         c.setFrontImage("Mock_Front_Image");
         return c;
     }
 
     @Override
-    protected Coin ImprintFrontMotto(Coin c) {
+    protected Coin imprintFrontMotto(Coin c) {
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
         c.setYear(2025);
@@ -214,13 +214,13 @@ class MockCoin extends Coin {
     }
 
     @Override
-    protected Coin ImprintBackImage(Coin c) {
+    protected Coin imprintBackImage(Coin c) {
         c.setBackImage("Mock_Back_Image");
         return c;
     }
 
     @Override
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         c.setBackMotto("E PLURIBUS UNUM");
         c.setBackLabel("UNITED STATES OF AMERICA");
         c.setValueDescription("Mock_Value_Description");
