@@ -5,6 +5,11 @@
  */
 public class Quarter extends Coin {
     /**
+     * The maximum year allowed for this coin.
+     */
+    private static final int MAX_ALLOWED_YEAR = 2025;
+
+    /** 
      * Default constructor for Quarter.
      */
     public Quarter() {
@@ -22,42 +27,74 @@ public class Quarter extends Coin {
             null, null, null, 
             null, null, true, null, year);
     }
+
+    /**
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
+     */
     @Override
     protected Coin smeltStep(Coin c) {
         c.setSmelter(new CuproNickel()); 
         c.smelt();
         return c;
     }
+
+    /**
+     * Method to imprint the ridged edge on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
     protected Coin imprintRidgedEdge(Coin c) {
         
         c.setRidgedEdge(true);
         return c;
     }
 
+    /**
+     * Method to imprint the front image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
     protected Coin imprintFrontImage(Coin c) {
         
         c.setFrontImage("G_Washington");
         return c;
     }
 
+    /** 
+     * Method to imprint the back image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
     protected Coin imprintBackImage(Coin c) {
         c.setBackImage("Eagle");
         return c;
     }
 
+    /** 
+     * Method to imprint the front motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
     protected Coin imprintFrontMotto(Coin c) {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        if(c.getYear() != 2025){
+        if (c.getYear() != MAX_ALLOWED_YEAR) {
             c.setYear(c.getYear());
         }
-        else{
+        else {
             c.setYear(DEFAULT_YEAR);
         }
         return c;
     }
 
+    /**
+     * Method to imprint the back motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
     protected Coin imprintBackMotto(Coin c) {
         
         c.setBackMotto("E PLURIBUS UNUM");

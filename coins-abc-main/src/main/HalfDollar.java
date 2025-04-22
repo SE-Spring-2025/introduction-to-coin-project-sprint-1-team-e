@@ -5,6 +5,11 @@
  */
 public class HalfDollar extends Coin {
     /**
+     * The maximum year allowed for this coin.
+     */
+    private static final int MAX_ALLOWED_YEAR = 2025;
+
+    /**
      * Default constructor for HalfDollar.
      */
     public HalfDollar() {
@@ -42,7 +47,7 @@ public class HalfDollar extends Coin {
      */
     protected Coin imprintRidgedEdge(Coin c) {
         
-        c.setRidgedEdge(true); // HalfDollar has ridged edges
+        c.setRidgedEdge(true); 
         return c;
     }
 
@@ -77,10 +82,10 @@ public class HalfDollar extends Coin {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        if(c.getYear() != 2025){
+        if (c.getYear() != MAX_ALLOWED_YEAR) {
             c.setYear(c.getYear());
         }
-        else{
+        else {
             c.setYear(DEFAULT_YEAR);
         }
         return c;
