@@ -24,10 +24,15 @@ public class Penny extends Coin {
      */
     public Penny(int year) {
         super("Penny", PENNY_VALUE, null, null,
-        null, null, null,
-        null, null, false, null, year);
+            null, null, null,
+            null, null, false, null, year);
     }
 
+    /**
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
+     */
     @Override
     protected Coin smeltStep(Coin c) {
         c.setSmelter(new Copper());
@@ -51,7 +56,7 @@ public class Penny extends Coin {
      * @param c the coin to imprint
      * @return the imprinted coin
      */
-        protected Coin imprintFrontImage(Coin c) {
+    protected Coin imprintFrontImage(Coin c) {
         
         c.setFrontImage("A_Lincoln");
         return c;
