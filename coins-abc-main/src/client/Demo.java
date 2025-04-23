@@ -136,23 +136,36 @@ public class Demo {
         CoinCounts coinCounter = Coin.getCoinCounts();
         
         // Create a penny with standard copper metallurgy
+        System.out.println("> Creating standard Penny...");
         Penny standardPenny = new Penny(2023);
+        standardPenny = (Penny) standardPenny.manufacture(standardPenny);
         coinCounter.addCoin(standardPenny);
-        System.out.println("> Standard Penny: " + standardPenny);
+        System.out.println("  [Result] " + standardPenny);
+        printSeparator();
         
         // Create a penny with cupro-nickel metallurgy
+        System.out.println("> Creating special Penny with Cupro-Nickel...");
         Penny specialPenny = new Penny(2023);
         specialPenny.setSmelter(new CuproNickel());
-        specialPenny.smelt();
+        specialPenny = (Penny) specialPenny.manufacture(specialPenny);
         coinCounter.addCoin(specialPenny);
-        System.out.println("> Special Penny with Cupro-Nickel: " + specialPenny);
+        System.out.println("  [Result] " + specialPenny);
+        printSeparator();
         
         // Change a nickel's metallurgy to copper
+        System.out.println("> Creating standard Nickel...");
         Nickel standardNickel = new Nickel(2023);
+        standardNickel = (Nickel) standardNickel.manufacture(standardNickel);
         coinCounter.addCoin(standardNickel);
-        System.out.println("> Standard Nickel: " + standardNickel);
-        standardNickel.setSmelter(new Copper());
-        System.out.println("> Nickel after changing to Copper: " + standardNickel);
+        System.out.println("  [Result] " + standardNickel);
+        printSeparator();
+        
+        System.out.println("> Creating Nickel with Copper metallurgy...");
+        Nickel copperNickel = new Nickel(2023);
+        copperNickel.setSmelter(new Copper());
+        copperNickel = (Nickel) copperNickel.manufacture(copperNickel);
+        coinCounter.addCoin(copperNickel);
+        System.out.println("  [Result] " + copperNickel);
         printSeparator();
     }
     
@@ -232,7 +245,7 @@ public class Demo {
                 System.out.println("> Creating: Special Penny with Cupro-Nickel...");
                 c = new Penny(curYear);
                 c.setSmelter(new CuproNickel());
-                c.smelt();
+                c = c.manufacture(c);
                 break;
             case 'X':
                 return;
