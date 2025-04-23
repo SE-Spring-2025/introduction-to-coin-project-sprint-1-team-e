@@ -50,7 +50,8 @@ public abstract class Coin {
      * @param smelter the metallurgy strategy for the coin
      * @param manufactureYear the year the coin was manufactured
      */
-    public Coin(String familiarName, double value, Metallurgy smelter, int manufactureYear) {
+    public Coin(String familiarName, double value, 
+        Metallurgy smelter, int manufactureYear) {
         this.familiarName = familiarName;
         this.value = value;
         this.smelter = smelter;
