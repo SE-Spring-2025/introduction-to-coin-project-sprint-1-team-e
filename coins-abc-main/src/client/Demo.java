@@ -137,18 +137,21 @@ public class Demo {
         
         // Create a penny with standard copper metallurgy
         Penny standardPenny = new Penny(2023);
+        standardPenny = (Penny) standardPenny.manufacture(standardPenny);
         coinCounter.addCoin(standardPenny);
         System.out.println("> Standard Penny: " + standardPenny);
         
         // Create a penny with cupro-nickel metallurgy
         Penny specialPenny = new Penny(2023);
         specialPenny.setSmelter(new CuproNickel());
+        specialPenny = (Penny) specialPenny.manufacture(specialPenny);
         specialPenny.smelt();
         coinCounter.addCoin(specialPenny);
         System.out.println("> Special Penny with Cupro-Nickel: " + specialPenny);
         
         // Change a nickel's metallurgy to copper
         Nickel standardNickel = new Nickel(2023);
+        standardNickel = (Nickel) standardNickel.manufacture(standardNickel);
         coinCounter.addCoin(standardNickel);
         System.out.println("> Standard Nickel: " + standardNickel);
         standardNickel.setSmelter(new Copper());
