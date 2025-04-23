@@ -47,33 +47,26 @@ public abstract class Coin {
      * Constructor for Coin class.
      * @param familiarName the common name for the coin
      * @param value the monetary value of the coin
-     * @param frontMotto the motto on the front of the coin
-     * @param backMotto the motto on the back of the coin
-     * @param frontLabel the label on the front of the coin
-     * @param backLabel the label on the back of the coin
-     * @param frontImage the image on the front of the coin
-     * @param backImage the image on the back of the coin
-     * @param valueDescription the description of the coin's value
-     * @param ridgedEdge whether the coin has a ridged edge
      * @param smelter the metallurgy strategy for the coin
      * @param manufactureYear the year the coin was manufactured
      */
-    public Coin(String familiarName, double value, String frontMotto, 
-                String backMotto, String frontLabel, String backLabel, 
-                String frontImage, String backImage, String valueDescription, 
-                boolean ridgedEdge, Metallurgy smelter, int manufactureYear) {
+    public Coin(String familiarName, double value, 
+        Metallurgy smelter, int manufactureYear) {
         this.familiarName = familiarName;
         this.value = value;
-        this.frontMotto = frontMotto;
-        this.manufactureYear = manufactureYear;
-        this.frontImage = frontImage;
-        this.backImage = backImage;
-        this.backMotto = backMotto;
-        this.frontLabel = frontLabel;
-        this.backLabel = backLabel;
-        this.valueDescription = valueDescription;
-        this.ridgedEdge = ridgedEdge;
         this.smelter = smelter;
+        this.manufactureYear = manufactureYear;
+        
+        // All other properties will be set by manufacture process steps
+        this.frontMotto = null;
+        this.backMotto = null;
+        this.frontLabel = null;
+        this.backLabel = null;
+        this.frontImage = null;
+        this.backImage = null;
+        this.valueDescription = null;
+        this.ridgedEdge = false;
+        this.metallurgy = null;
     }
 
     /**

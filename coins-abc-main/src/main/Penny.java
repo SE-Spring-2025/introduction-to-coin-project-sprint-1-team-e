@@ -4,18 +4,12 @@
  * @version 1.0
  */
 public class Penny extends Coin {
-    /**
-     * The maximum year allowed for this coin.
-     */
-    private static final int MAX_ALLOWED_YEAR = 2025;
 
     /**
      * Default constructor for Penny.
      */
     public Penny() {
-        super("Penny", PENNY_VALUE, null, null,
-            null, null, null, null,
-            null, false, null, DEFAULT_YEAR);
+        super("Penny", PENNY_VALUE, new Copper(), DEFAULT_YEAR);
     }
     
     /**
@@ -23,9 +17,7 @@ public class Penny extends Coin {
      * @param year the year of manufacture
      */
     public Penny(int year) {
-        super("Penny", PENNY_VALUE, null, null,
-            null, null, null,
-            null, null, false, null, year);
+        super("Penny", PENNY_VALUE, new Copper(), year);
     }
 
     /**
@@ -35,7 +27,6 @@ public class Penny extends Coin {
      */
     @Override
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new Copper());
         c.smelt();
         return c;
     }
@@ -81,12 +72,6 @@ public class Penny extends Coin {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        if (c.getYear() != MAX_ALLOWED_YEAR) {
-            c.setYear(c.getYear());
-        }
-        else {
-            c.setYear(DEFAULT_YEAR);
-        } 
         return c;
     }
 

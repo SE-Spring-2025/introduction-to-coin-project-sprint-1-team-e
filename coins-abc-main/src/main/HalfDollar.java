@@ -4,18 +4,12 @@
  * @version 1.0
  */
 public class HalfDollar extends Coin {
-    /**
-     * The maximum year allowed for this coin.
-     */
-    private static final int MAX_ALLOWED_YEAR = 2025;
 
     /**
      * Default constructor for HalfDollar.
      */
     public HalfDollar() {
-        super("HalfDollar", HALFDOLLAR_VALUE, null, 
-            null, null, null, null, 
-            null, null, false, null, DEFAULT_YEAR);
+        super("HalfDollar", HALFDOLLAR_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -23,9 +17,7 @@ public class HalfDollar extends Coin {
      * @param year the year of manufacture
      */
     public HalfDollar(int year) {
-        super("HalfDollar", HALFDOLLAR_VALUE, null,
-            null, null, null, null,
-            null, null, false, null, year);
+        super("HalfDollar", HALFDOLLAR_VALUE, new CuproNickel(), year);
     }
     
     /**
@@ -33,11 +25,10 @@ public class HalfDollar extends Coin {
      * @param c the coin to smelt
      * @return the smelted coin
      */
+    @Override
     protected Coin smeltStep(Coin c) {
-        setSmelter(new CuproNickel());
-        smelt();
-
-        return this;
+        c.smelt();
+        return c;
     }
 
     /**
@@ -82,12 +73,6 @@ public class HalfDollar extends Coin {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        if (c.getYear() != MAX_ALLOWED_YEAR) {
-            c.setYear(c.getYear());
-        }
-        else {
-            c.setYear(DEFAULT_YEAR);
-        }
         return c;
     }
 

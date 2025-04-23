@@ -4,19 +4,12 @@
  * @version 1.0
  */
 public class Nickel extends Coin {
-    /**
-     * The maximum year allowed for this coin.
-     */
-    private static final int MAX_ALLOWED_YEAR = 2025;
 
     /**
      * Default constructor for Nickel.
      */
-    
     public Nickel() {
-        super("Nickel", NICKEL_VALUE, null, 
-            null, null, null, 
-            null, null, null, false, null, DEFAULT_YEAR);
+        super("Nickel", NICKEL_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -24,16 +17,18 @@ public class Nickel extends Coin {
      * @param year the year of manufacture
      */
     public Nickel(int year) {
-        super("Nickel", NICKEL_VALUE, null, 
-            null, null, null, 
-            null, null, null, false, null, year);
+        super("Nickel", NICKEL_VALUE, new CuproNickel(), year);
     }
 
+    /**
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
+     */
+    @Override
     protected Coin smeltStep(Coin c) {
-        setSmelter(new CuproNickel());
-        smelt();
-
-        return this;
+        c.smelt();
+        return c;
     }
 
     protected Coin imprintRidgedEdge(Coin c) {
@@ -57,12 +52,6 @@ public class Nickel extends Coin {
         
         c.setFrontMotto("IN GOD WE TRUST");
         c.setFrontLabel("LIBERTY");
-        if (c.getYear() != MAX_ALLOWED_YEAR) {
-            c.setYear(c.getYear());
-        }
-        else {
-            c.setYear(DEFAULT_YEAR);
-        }
         return c;
     }
 
