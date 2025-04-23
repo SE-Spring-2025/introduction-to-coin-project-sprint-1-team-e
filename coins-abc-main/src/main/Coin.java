@@ -349,6 +349,21 @@ public abstract class Coin {
     }
 
     /**
+     * Checks if the coin is flipped.
+     * @return true if the coin is flipped, false otherwise
+     */
+    public boolean isFlipped() {
+        return flipped;
+    }
+    
+    /**
+     * Checks if the coin is buffed.
+     * @return true if the coin is buffed, false otherwise
+     */
+    public boolean isBuffed() {
+        return buffed;
+    }
+    /**
      * Returns a string representation of the coin.
      * @return a string representation of the coin
      */
