@@ -13,10 +13,7 @@ public class Dime extends Coin {
      * Default constructor for Dime.
      */
     public Dime() {
-        super("Dime", DIME_VALUE, null, null, 
-            null, null, null, 
-            null, null, false, 
-            null, DEFAULT_YEAR);
+        super("Dime", DIME_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -24,10 +21,7 @@ public class Dime extends Coin {
      * @param year the year of manufacture
      */
     public Dime(int year) {
-        super("Dime", DIME_VALUE, null, null, 
-            null, null, null, 
-            null, null, false, 
-            null, year);
+        super("Dime", DIME_VALUE, new CuproNickel(), year);
     }
 
     /**
@@ -35,10 +29,9 @@ public class Dime extends Coin {
      * @param c the coin to smelt
      * @return the smelted coin
      */
+    @Override
     protected Coin smeltStep(Coin c) {
-        setSmelter(new CuproNickel());
-        smelt();
-
+        c.smelt();
         return c;
     }
 

@@ -13,9 +13,7 @@ public class Quarter extends Coin {
      * Default constructor for Quarter.
      */
     public Quarter() {
-        super("Quarter", QUARTER_VALUE, null, null, 
-            null, null, null, 
-            null, null, true, null, DEFAULT_YEAR);
+        super("Quarter", QUARTER_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -23,9 +21,7 @@ public class Quarter extends Coin {
      * @param year the year of manufacture
      */
     public Quarter(int year) {
-        super("Quarter", QUARTER_VALUE, null, null, 
-            null, null, null, 
-            null, null, true, null, year);
+        super("Quarter", QUARTER_VALUE, new CuproNickel(), year);
     }
 
     /**
@@ -35,7 +31,6 @@ public class Quarter extends Coin {
      */
     @Override
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new CuproNickel()); 
         c.smelt();
         return c;
     }

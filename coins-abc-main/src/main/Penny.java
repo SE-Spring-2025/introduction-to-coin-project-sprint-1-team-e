@@ -13,9 +13,7 @@ public class Penny extends Coin {
      * Default constructor for Penny.
      */
     public Penny() {
-        super("Penny", PENNY_VALUE, null, null,
-            null, null, null, null,
-            null, false, null, DEFAULT_YEAR);
+        super("Penny", PENNY_VALUE, new Copper(), DEFAULT_YEAR);
     }
     
     /**
@@ -23,9 +21,7 @@ public class Penny extends Coin {
      * @param year the year of manufacture
      */
     public Penny(int year) {
-        super("Penny", PENNY_VALUE, null, null,
-            null, null, null,
-            null, null, false, null, year);
+        super("Penny", PENNY_VALUE, new Copper(), year);
     }
 
     /**
@@ -35,7 +31,6 @@ public class Penny extends Coin {
      */
     @Override
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new Copper());
         c.smelt();
         return c;
     }
