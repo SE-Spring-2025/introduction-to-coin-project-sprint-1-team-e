@@ -47,41 +47,38 @@ public abstract class Coin {
      * Constructor for Coin class.
      * @param familiarName the common name for the coin
      * @param value the monetary value of the coin
-     * @param frontMotto the motto on the front of the coin
-     * @param backMotto the motto on the back of the coin
-     * @param frontLabel the label on the front of the coin
-     * @param backLabel the label on the back of the coin
-     * @param frontImage the image on the front of the coin
-     * @param backImage the image on the back of the coin
-     * @param valueDescription the description of the coin's value
-     * @param ridgedEdge whether the coin has a ridged edge
      * @param smelter the metallurgy strategy for the coin
      * @param manufactureYear the year the coin was manufactured
      */
-    public Coin(String familiarName, double value, String frontMotto, 
-                String backMotto, String frontLabel, String backLabel, 
-                String frontImage, String backImage, String valueDescription, 
-                boolean ridgedEdge, Metallurgy smelter, int manufactureYear) {
+    public Coin(String familiarName, double value, 
+        Metallurgy smelter, int manufactureYear) {
         this.familiarName = familiarName;
         this.value = value;
-        this.frontMotto = frontMotto;
-        this.manufactureYear = manufactureYear;
-        this.frontImage = frontImage;
-        this.backImage = backImage;
-        this.backMotto = backMotto;
-        this.frontLabel = frontLabel;
-        this.backLabel = backLabel;
-        this.valueDescription = valueDescription;
-        this.ridgedEdge = ridgedEdge;
         this.smelter = smelter;
-        smelt();
+        this.manufactureYear = manufactureYear;
+        
+        // All other properties will be set by manufacture process steps
+        this.frontMotto = null;
+        this.backMotto = null;
+        this.frontLabel = null;
+        this.backLabel = null;
+        this.frontImage = null;
+        this.backImage = null;
+        this.valueDescription = null;
+        this.ridgedEdge = false;
+        this.metallurgy = null;
     }
 
-
-
-    public Coin manufacture(Coin c0) {
+    /**
+     * Template method for manufacturing a coin. 
+     * This method defines the sequence of steps
+     * and should not be overridden by subclasses.
+     * @param c0 the initial coin (blob)
+     * @return the fully manufactured coin
+     */
+    public final Coin manufacture(Coin c0) {
         Coin c1 = smeltStep(c0);
-        Coin c2 = edge(c1);
+        Coin c2 = imprintRidgedEdge(c1);
         Coin c3 = imprintFrontImage(c2);
         Coin c4 = imprintFrontMotto(c3);
         Coin c5 = flip(c4);
@@ -93,24 +90,30 @@ public abstract class Coin {
 
     // Abstract methods to implement in each subclass
     protected abstract Coin smeltStep(Coin c);
-    protected abstract Coin edge(Coin c);
+    protected abstract Coin imprintRidgedEdge(Coin c);
     protected abstract Coin imprintFrontImage(Coin c);
     protected abstract Coin imprintFrontMotto(Coin c);
     protected abstract Coin imprintBackImage(Coin c);
     protected abstract Coin imprintBackMotto(Coin c);
 
+    /**
+     * Default implementation for flipping a coin. Sets flipped to true.
+     * @param c the coin to flip
+     * @return the flipped coin
+     */
     protected Coin flip(Coin c) {
-        this.flipped = true;
-        return this;
+        c.setFlipped(true);
+        return c;
     }
-    
+    /**
+     * Default implementation for buffing a coin. Sets buffed to true.
+     * @param c the coin to buff
+     * @return the buffed coin
+     */
     protected Coin buff(Coin c) {
-        this.buffed = true;
-        return this;
+        c.setBuffed(true);
+        return c;
     }
-
-
-
 
     /**
      * Uses the smelter to set the metallurgy.
@@ -324,6 +327,21 @@ public abstract class Coin {
     public void setSmelter(Metallurgy smelter) {
         this.smelter = smelter;
         smelt();
+    }
+
+    /**
+     * Sets the flipped state of the coin.
+     * @param flipped true if the coin has been flipped
+     */
+    public void setFlipped(boolean flipped) {
+        this.flipped = flipped;
+    }
+    /**
+     * Sets the buffed state of the coin.
+     * @param buffed true if the coin has been buffed
+     */
+    public void setBuffed(boolean buffed) {
+        this.buffed = buffed;
     }
 
     public static CoinCounts getCoinCounts() {

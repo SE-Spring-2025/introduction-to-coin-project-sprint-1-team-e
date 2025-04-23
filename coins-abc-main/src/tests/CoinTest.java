@@ -14,6 +14,7 @@ public class CoinTest {
     @Test
     public void testPenny() {
         Penny p = new Penny();
+        p = (Penny) p.manufacture(p);
         assertEquals(0.01, p.getValue());
         assertEquals("Penny", p.getFamiliarName());
         assertEquals("IN GOD WE TRUST", p.getFrontMotto());
@@ -31,6 +32,7 @@ public class CoinTest {
     @Test
     public void testNickel() {
         Nickel n = new Nickel();
+        n = (Nickel) n.manufacture(n);
         assertEquals(0.05, n.getValue());
         assertEquals("Nickel", n.getFamiliarName());
         assertEquals("IN GOD WE TRUST", n.getFrontMotto());
@@ -48,6 +50,7 @@ public class CoinTest {
     @Test
     public void testDime() {
         Dime d = new Dime();
+        d = (Dime) d.manufacture(d);
         assertEquals(0.10, d.getValue());
         assertEquals("Dime", d.getFamiliarName());
         assertEquals("IN GOD WE TRUST", d.getFrontMotto());
@@ -65,6 +68,7 @@ public class CoinTest {
     @Test
     public void testQuarter() {
         Quarter q = new Quarter(1999);
+        q = (Quarter) q.manufacture(q);
         assertEquals(0.25, q.getValue());
         assertEquals("Quarter", q.getFamiliarName());
         assertEquals("IN GOD WE TRUST", q.getFrontMotto());
@@ -82,6 +86,7 @@ public class CoinTest {
     @Test
     public void testHalfDollar() {
         HalfDollar h = new HalfDollar();
+        h = (HalfDollar) h.manufacture(h);
         assertEquals(0.50, h.getValue());
         assertEquals("HalfDollar", h.getFamiliarName());
         assertEquals("IN GOD WE TRUST", h.getFrontMotto());
@@ -99,6 +104,7 @@ public class CoinTest {
     @Test
     public void testDollar() {
         Dollar d = new Dollar();
+        d = (Dollar) d.manufacture(d);
         assertEquals(1.00, d.getValue());
         assertEquals("Dollar", d.getFamiliarName());
         assertEquals("IN GOD WE TRUST", d.getFrontMotto());
@@ -116,6 +122,7 @@ public class CoinTest {
     @Test
     public void testToString() {
         HalfDollar h = new HalfDollar(1999);
+        h = (HalfDollar) h.manufacture(h);
         String expected = "[HalfDollar,0.50,1999,'IN GOD WE TRUST','E PLURIBUS UNUM','J_Kennedy','Presidential_Seal','LIBERTY','UNITED STATES OF AMERICA','HALF DOLLAR',ridges,'Cupro-Nickel']";
         assertEquals(expected, h.toString());
     }
@@ -123,6 +130,7 @@ public class CoinTest {
     @Test
     public void testMockCoinGetters() {
         Coin testCoin = new MockCoin();
+        testCoin = (MockCoin) testCoin.manufacture(testCoin);
         assertEquals("MockCoin", testCoin.getFamiliarName());
         assertEquals(24, testCoin.getValue());
         assertEquals("IN GOD WE TRUST", testCoin.getFrontMotto());
@@ -140,19 +148,21 @@ public class CoinTest {
     @Test
     public void testMetallurgyStrategy() {
         // Test changing metallurgy using the strategy pattern
-        Penny penny = new Penny(2023);
+        Penny penny = new Penny();
+        penny = (Penny) penny.manufacture(penny);
+
+
         assertEquals("Copper", penny.getMetallurgy());
         
-        // Change metallurgy to Cupro-Nickel
-        penny.setSmelter(new CuproNickel());
-        assertEquals("Cupro-Nickel", penny.getMetallurgy());
-        
-        // Test construction with a specific metallurgy
-        Penny specialPenny = new Penny(2023, new CuproNickel());
+        Penny specialPenny = new Penny();
+        specialPenny = (Penny) specialPenny.manufacture(specialPenny);
+        specialPenny.setSmelter(new CuproNickel());
+
         assertEquals("Cupro-Nickel", specialPenny.getMetallurgy());
         
         // Test that mockCoin uses MockMetallurgy
         MockCoin mockCoin = new MockCoin();
+        mockCoin = (MockCoin) mockCoin.manufacture(mockCoin);
         assertEquals("Mock_Metallurgy", mockCoin.getMetallurgy());
         
         // Change mockCoin's metallurgy
@@ -173,11 +183,47 @@ class MockMetallurgy implements Metallurgy {
 
 class MockCoin extends Coin {
     public MockCoin() {
-        super("MockCoin", 24.0, 
-              "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-              "LIBERTY", "UNITED STATES OF AMERICA", 
-              "Mock_Front_Image", "Mock_Back_Image", 
-              "Mock_Value_Description", true, new MockMetallurgy(), 2025);
+        super("MockCoin", 24.0, new MockMetallurgy(), 2025);
+    }
+
+    @Override
+    protected Coin smeltStep(Coin c) {
+        c.setMetallurgy("Mock_Metallurgy");
+        return c;
+    }
+
+    @Override
+    protected Coin imprintRidgedEdge(Coin c) {
+        c.setRidgedEdge(true);
+        return c;
+    }
+
+    @Override
+    protected Coin imprintFrontImage(Coin c) {
+        c.setFrontImage("Mock_Front_Image");
+        return c;
+    }
+
+    @Override
+    protected Coin imprintFrontMotto(Coin c) {
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        c.setYear(2025);
+        return c;
+    }
+
+    @Override
+    protected Coin imprintBackImage(Coin c) {
+        c.setBackImage("Mock_Back_Image");
+        return c;
+    }
+
+    @Override
+    protected Coin imprintBackMotto(Coin c) {
+        c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("Mock_Value_Description");
+        return c;
     }
 }
 

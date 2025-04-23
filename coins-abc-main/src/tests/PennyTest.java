@@ -5,6 +5,7 @@ public class PennyTest {
     @Test
     public void testConstructor() {
         Penny p = new Penny(2025);
+        p = (Penny) p.manufacture(p);
         assertEquals(0.01, p.getValue());
         assertEquals("Penny", p.getFamiliarName());
         assertEquals("IN GOD WE TRUST", p.getFrontMotto());

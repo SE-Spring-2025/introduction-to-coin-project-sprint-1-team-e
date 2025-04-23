@@ -4,13 +4,12 @@
  * @version 1.0
  */
 public class Dollar extends Coin {
+
     /**
      * Default constructor for Dollar.
      */
     public Dollar() {
-        super("Dollar", DOLLAR_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", 
-            "Moon_Eagle", "ONE DOLLAR", true, new CuproNickel(), DEFAULT_YEAR);
+        super("Dollar", DOLLAR_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -18,56 +17,73 @@ public class Dollar extends Coin {
      * @param year the year of manufacture
      */
     public Dollar(int year) {
-        super("Dollar", DOLLAR_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", 
-            "Moon_Eagle", "ONE DOLLAR", true, new CuproNickel(), year);
+        super("Dollar", DOLLAR_VALUE, new CuproNickel(), year);
     }
-    
+
     /**
-     * Constructor for Dollar with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
      */
-    public Dollar(int year, Metallurgy smelter) {
-        super("Dollar", DOLLAR_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "S_Anthony", 
-            "Moon_Eagle", "ONE DOLLAR", true, smelter, year);
-    }
-
+    @Override
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new DimeMetallurgy); //Definetely changing this
         c.smelt();
-
-        return ;
+        return c;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
-        
+    /**
+     * Method to imprint the ridged edge on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintRidgedEdge(Coin c) {
+        c.setRidgedEdge(true);
 
-        return ;
+        return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
-        
+    /**
+     * Method to imprint the front image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontImage(Coin c) {
+        c.setFrontImage("S_Anthony");
 
-        return ;
+        return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
-        
+    /**
+     * Method to imprint the back image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintBackImage(Coin c) {
+        c.setBackImage("Moon_Eagle");
 
-        return ;
+        return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
-        
-
-        return ;
+    /**
+     * Method to imprint the front motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontMotto(Coin c) {
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
-        
-
-        return ;
+    /**
+     * Method to imprint the back motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */ 
+    protected Coin imprintBackMotto(Coin c) {
+        c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("ONE DOLLAR");
+        return c;
     }
 }

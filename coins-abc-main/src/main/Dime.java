@@ -4,14 +4,12 @@
  * @version 1.0
  */
 public class Dime extends Coin {
+
     /**
      * Default constructor for Dime.
      */
     public Dime() {
-        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, 
-            new CuproNickel(), DEFAULT_YEAR);
+        super("Dime", DIME_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -19,58 +17,73 @@ public class Dime extends Coin {
      * @param year the year of manufacture
      */
     public Dime(int year) {
-        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, 
-            new CuproNickel(), year);
+        super("Dime", DIME_VALUE, new CuproNickel(), year);
     }
-    
+
     /**
-     * Constructor for Dime with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
      */
-    public Dime(int year, Metallurgy smelter) {
-        super("Dime", DIME_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "F_Roosevelt", 
-            "Torch_Branches", "ONE DIME", true, 
-            smelter, year);
-    }
-
+    @Override
     protected Coin smeltStep(Coin c) {
-        setSmelter(new CuproNickel()); //Definetely changing this
-        smelt();
-
-        return this;
+        c.smelt();
+        return c;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
-        
+    /**
+     * Method to imprint the ridged edge on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintRidgedEdge(Coin c) {
+        c.setRidgedEdge(true);
 
-        return ;
+        return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
-        c.frontImage = "F_Roosevelt";
+    /**
+     * Method to imprint the front image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontImage(Coin c) {
+        c.setFrontImage("F_Roosevelt");
 
-        return ;
+        return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
-        
+    /**
+     * Method to imprint the back image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintBackImage(Coin c) {
+        c.setBackImage("Torch_Branches");
 
-        return ;
+        return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
-        
-
-        return ;
+    /**
+     * Method to imprint the front motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontMotto(Coin c) {
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
-        
-
-        return ;
+    /**
+     * Method to imprint the back motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintBackMotto(Coin c) {
+        c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("ONE DIME");
+        return c;
     }
 }

@@ -80,6 +80,7 @@ public class Demo {
         // Penny
         System.out.println("> Creating: Penny()");
         Penny penny = new Penny();
+        penny = (Penny) penny.manufacture(penny);
         coinCounter.addCoin(penny);
         System.out.println("  [Result] " + penny);
         printSeparator();
@@ -87,6 +88,7 @@ public class Demo {
         // Nickel
         System.out.println("> Creating: Nickel()");
         Nickel nickel = new Nickel();
+        nickel = (Nickel) nickel.manufacture(nickel);
         coinCounter.addCoin(nickel);
         System.out.println("  [Result] " + nickel);
         printSeparator();
@@ -94,6 +96,7 @@ public class Demo {
         // Dime
         System.out.println("> Creating: Dime()");
         Dime dime = new Dime();
+        dime = (Dime) dime.manufacture(dime);
         coinCounter.addCoin(dime);
         System.out.println("  [Result] " + dime);
         printSeparator();
@@ -101,6 +104,7 @@ public class Demo {
         // Quarter
         System.out.println("> Creating: Quarter()");
         Quarter quarter = new Quarter();
+        quarter = (Quarter) quarter.manufacture(quarter);
         coinCounter.addCoin(quarter);
         System.out.println("  [Result] " + quarter);
         printSeparator();
@@ -108,6 +112,7 @@ public class Demo {
         // HalfDollar
         System.out.println("> Creating: HalfDollar()");
         HalfDollar halfDollar = new HalfDollar();
+        halfDollar = (HalfDollar) halfDollar.manufacture(halfDollar);
         coinCounter.addCoin(halfDollar);
         System.out.println("  [Result] " + halfDollar);
         printSeparator();
@@ -115,6 +120,7 @@ public class Demo {
         // Dollar
         System.out.println("> Creating: Dollar()");
         Dollar dollar = new Dollar();
+        dollar = (Dollar) dollar.manufacture(dollar);
         coinCounter.addCoin(dollar);
         System.out.println("  [Result] " + dollar);
         printSeparator();
@@ -130,21 +136,37 @@ public class Demo {
         CoinCounts coinCounter = Coin.getCoinCounts();
         
         // Create a penny with standard copper metallurgy
+        System.out.println("> Creating standard Penny...");
         Penny standardPenny = new Penny(2023);
+        standardPenny = (Penny) standardPenny.manufacture(standardPenny);
+        standardPenny = (Penny) standardPenny.manufacture(standardPenny);
         coinCounter.addCoin(standardPenny);
-        System.out.println("> Standard Penny: " + standardPenny);
+        System.out.println("  [Result] " + standardPenny);
+        printSeparator();
         
         // Create a penny with cupro-nickel metallurgy
-        Penny specialPenny = new Penny(2023, new CuproNickel());
+        System.out.println("> Creating special Penny with Cupro-Nickel...");
+        Penny specialPenny = new Penny(2023);
+        specialPenny.setSmelter(new CuproNickel());
+        specialPenny = (Penny) specialPenny.manufacture(specialPenny);
         coinCounter.addCoin(specialPenny);
-        System.out.println("> Special Penny with Cupro-Nickel: " + specialPenny);
+        System.out.println("  [Result] " + specialPenny);
+        printSeparator();
         
         // Change a nickel's metallurgy to copper
+        System.out.println("> Creating standard Nickel...");
         Nickel standardNickel = new Nickel(2023);
+        standardNickel = (Nickel) standardNickel.manufacture(standardNickel);
         coinCounter.addCoin(standardNickel);
-        System.out.println("> Standard Nickel: " + standardNickel);
-        standardNickel.setSmelter(new Copper());
-        System.out.println("> Nickel after changing to Copper: " + standardNickel);
+        System.out.println("  [Result] " + standardNickel);
+        printSeparator();
+        
+        System.out.println("> Creating Nickel with Copper metallurgy...");
+        Nickel copperNickel = new Nickel(2023);
+        copperNickel.setSmelter(new Copper());
+        copperNickel = (Nickel) copperNickel.manufacture(copperNickel);
+        coinCounter.addCoin(copperNickel);
+        System.out.println("  [Result] " + copperNickel);
         printSeparator();
     }
     
@@ -222,7 +244,9 @@ public class Demo {
                 break;
             case 'S':
                 System.out.println("> Creating: Special Penny with Cupro-Nickel...");
-                c = new Penny(curYear, new CuproNickel());
+                c = new Penny(curYear);
+                c.setSmelter(new CuproNickel());
+                c = c.manufacture(c);
                 break;
             case 'X':
                 return;
@@ -231,6 +255,7 @@ public class Demo {
                 return;
         }
         
+        c = c.manufacture(c);
         // Add the created coin to the counter to notify observers
         coinCounter.addCoin(c);
         

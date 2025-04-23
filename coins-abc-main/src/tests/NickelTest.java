@@ -5,6 +5,7 @@ public class NickelTest {
     @Test
     public void testConstructor() {
         Nickel n = new Nickel(2025);
+        n=(Nickel)n.manufacture(n);
         assertEquals(0.05, n.getValue());
         assertEquals("Nickel", n.getFamiliarName());
         assertEquals("IN GOD WE TRUST", n.getFrontMotto());

@@ -4,14 +4,12 @@
  * @version 1.0
  */
 public class HalfDollar extends Coin {
+
     /**
      * Default constructor for HalfDollar.
      */
     public HalfDollar() {
-        super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
-            "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
-            "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            new CuproNickel(), DEFAULT_YEAR);
+        super("HalfDollar", HALFDOLLAR_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -19,58 +17,70 @@ public class HalfDollar extends Coin {
      * @param year the year of manufacture
      */
     public HalfDollar(int year) {
-        super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
-            "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
-            "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            new CuproNickel(), year);
+        super("HalfDollar", HALFDOLLAR_VALUE, new CuproNickel(), year);
     }
     
     /**
-     * Constructor for HalfDollar with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
      */
-    public HalfDollar(int year, Metallurgy smelter) {
-        super("HalfDollar", HALFDOLLAR_VALUE, "IN GOD WE TRUST", 
-            "E PLURIBUS UNUM", "LIBERTY", "UNITED STATES OF AMERICA", 
-            "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, 
-            smelter, year);
-    }
-
+    @Override
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new DimeMetallurgy); //Definetely changing this
         c.smelt();
-
-        return ;
+        return c;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
+    /**
+     * Method to imprint the ridged edge on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintRidgedEdge(Coin c) {
         
-
-        return ;
+        c.setRidgedEdge(true); 
+        return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
+    /**
+     * Method to imprint the front image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontImage(Coin c) {
         
-
-        return ;
+        c.setFrontImage("J_Kennedy");
+        return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
+    /**
+     * Method to imprint the back image on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintBackImage(Coin c) {
         
-
-        return ;
+        c.setBackImage("Presidential_Seal");
+        return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
+    /**
+     * Method to imprint the front motto on the coin.
+     * @param c the coin to imprint
+     * @return the imprinted coin
+     */
+    protected Coin imprintFrontMotto(Coin c) {
         
-
-        return ;
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         
-
-        return ;
+        c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("HALF DOLLAR");
+        return c;
     }
 }

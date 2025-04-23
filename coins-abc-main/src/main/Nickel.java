@@ -4,14 +4,12 @@
  * @version 1.0
  */
 public class Nickel extends Coin {
+
     /**
      * Default constructor for Nickel.
      */
     public Nickel() {
-        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), 
-            DEFAULT_YEAR);
+        super("Nickel", NICKEL_VALUE, new CuproNickel(), DEFAULT_YEAR);
     }
     
     /**
@@ -19,56 +17,49 @@ public class Nickel extends Coin {
      * @param year the year of manufacture
      */
     public Nickel(int year) {
-        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, new CuproNickel(), year);
+        super("Nickel", NICKEL_VALUE, new CuproNickel(), year);
     }
-    
+
     /**
-     * Constructor for Nickel with specific year and metallurgy.
-     * @param year the year of manufacture
-     * @param smelter the metallurgy strategy
+     * Method to smelt the coin.
+     * @param c the coin to smelt
+     * @return the smelted coin
      */
-    public Nickel(int year, Metallurgy smelter) {
-        super("Nickel", NICKEL_VALUE, "IN GOD WE TRUST", "E PLURIBUS UNUM", 
-            "LIBERTY", "UNITED STATES OF AMERICA", "T_Jefferson", 
-            "Jefferson_Memorial", "FIVE CENTS", false, smelter, year);
-    }
-
+    @Override
     protected Coin smeltStep(Coin c) {
-        c.setSmelter(new DimeMetallurgy); //Definetely changing this
         c.smelt();
-
-        return ;
+        return c;
     }
 
-    protected Coin ImprintridgedEdge(Coin c) {
+    protected Coin imprintRidgedEdge(Coin c) {
         
-
-        return ;
+        c.setRidgedEdge(false); 
+        return c;
     }
 
-    protected Coin ImprintFrontImage(Coin c) {
+    protected Coin imprintFrontImage(Coin c) {
         
-
-        return ;
+        c.setFrontImage("T_Jefferson");
+        return c;
     }
 
-    protected Coin ImprintBackImage(Coin c) {
-        
-
-        return ;
+    protected Coin imprintBackImage(Coin c) {
+        c.setBackImage("Jefferson_Memorial");
+        return c;
     }
 
-    protected Coin ImprintFrontMotto(Coin c) {
+    protected Coin imprintFrontMotto(Coin c) {
         
-
-        return ;
+        c.setFrontMotto("IN GOD WE TRUST");
+        c.setFrontLabel("LIBERTY");
+        return c;
     }
 
-    protected Coin ImprintBackMotto(Coin c) {
+    protected Coin imprintBackMotto(Coin c) {
         
-
-        return ;
+        c.setBackMotto("E PLURIBUS UNUM");
+        c.setBackLabel("UNITED STATES OF AMERICA");
+        c.setValueDescription("FIVE CENTS");
+        return c;
     }
 }
