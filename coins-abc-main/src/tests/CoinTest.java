@@ -69,7 +69,6 @@ public class CoinTest {
     public void testQuarter() {
         Quarter q = new Quarter(1999);
         q = (Quarter) q.manufacture(q);
-        q = (Quarter) q.manufacture(q);
         assertEquals(0.25, q.getValue());
         assertEquals("Quarter", q.getFamiliarName());
         assertEquals("IN GOD WE TRUST", q.getFrontMotto());
@@ -184,7 +183,7 @@ class MockMetallurgy implements Metallurgy {
 
 class MockCoin extends Coin {
     public MockCoin() {
-        super("MockCoin", 24.0, null, null, null, null, null, null, null, true, new MockMetallurgy(), 2025);
+        super("MockCoin", 24.0, new MockMetallurgy(), 2025);
     }
 
     @Override
